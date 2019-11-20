@@ -5,20 +5,20 @@
 #'   should replace the existing column names.
 #'
 preview_names <- function(data, overwrite = TRUE) {
-  #create vector of column names
-  colnames_data <- colnames(data)
   #check if data has names
-  if (colnames_data[[1]] == "X1") {
+  if (colnames(data)[[1]] == "X1") {
     stop("Your data does not have variable names.")
   }
   #if overwrite is TRUE, replace names with clean names
   if (overwrite == TRUE) {
-    colnames_clean <- janitor::make_clean_names(colnames_data)
+    colnames_clean <- janitor::make_clean_names(colnames(data))
     colnames(data) <- colnames_clean
     print(colnames(data))
+    return(data)
   }
   else {
     #print existing column names
-    print(colnames_data)
+    print(colnames(data))
+    return(data)
   }
 }
