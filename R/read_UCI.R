@@ -26,6 +26,12 @@
 #' @param ... Arguments to be based to `openxlsx::read.xlsx` (if ".xls"
 #'   is detected) or to `readr::read_delim`.
 #' @title read_UCI
+#' @examples
+#' #Read in the Las Vegas Trip Advisor Reviews dataset
+#' las_vegas <- read_UCI("00397", "LasVegasTripAdvisorReviews-Dataset.csv", data_delim = ";")
+#'
+#' #Read in Iris dataset
+#' iris_uci <- read_UCI("iris", "iris.data")
 read_UCI <- function(webpage,
                      data_file,
                      names_file = NA,
