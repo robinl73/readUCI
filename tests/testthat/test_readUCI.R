@@ -1,0 +1,1 @@
+expect_type(read_UCI("iris", "iris.data"), "list")
