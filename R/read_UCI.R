@@ -44,7 +44,7 @@ read_UCI <- function(webpage,
   url <- paste0("https://archive.ics.uci.edu/ml/machine-learning-databases/", webpage,"/", data_file)
   #If data_file is an excel object, create a using openxlsx::read.xlsx, the url,
   #and the dots
-  if((str_detect(data_file, ".xls") == TRUE)){
+  if((stringr::str_detect(data_file, ".xls") == TRUE)){
     a <- tibble(openxlsx::read.xlsx(xlsxFile = url,...))}
   #If data_file is not an excel object, create a using readr::read_delim, the
   #url, data_delim, data_col_names, and the dots
@@ -62,7 +62,7 @@ read_UCI <- function(webpage,
                         names_file)
     #If names_file is an excel object, create b using openxlsx::read.xlsx, the
     #url, and the dots
-    if(str_detect(names_file, ".xls") == TRUE){
+    if(stringr::str_detect(names_file, ".xls") == TRUE){
       b <- tibble(openxlsx::read.xlsx(xlsxFile = names_url,...))}
     #If names_file is not an excel object, create b using readr::read_delim, the
     #names_url, names_delim, names_col_names, and the dots
