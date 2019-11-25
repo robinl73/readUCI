@@ -45,7 +45,7 @@ read_UCI <- function(webpage,
   #If data_file is an excel object, create a using openxlsx::read.xlsx, the url,
   #and the dots
   if((stringr::str_detect(data_file, ".xls") == TRUE)){
-    a <- tibble(openxlsx::read.xlsx(xlsxFile = url,...))}
+    a <- tibble::tibble(openxlsx::read.xlsx(xlsxFile = url,...))}
   #If data_file is not an excel object, create a using readr::read_delim, the
   #url, data_delim, data_col_names, and the dots
   else{
@@ -63,7 +63,7 @@ read_UCI <- function(webpage,
     #If names_file is an excel object, create b using openxlsx::read.xlsx, the
     #url, and the dots
     if(stringr::str_detect(names_file, ".xls") == TRUE){
-      b <- tibble(openxlsx::read.xlsx(xlsxFile = names_url,...))}
+      b <- tibble::tibble(openxlsx::read.xlsx(xlsxFile = names_url,...))}
     #If names_file is not an excel object, create b using readr::read_delim, the
     #names_url, names_delim, names_col_names, and the dots
     else{
