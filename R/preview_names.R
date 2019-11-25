@@ -3,6 +3,10 @@
 #'   database.
 #' @param overwrite Default is TRUE. Indicates whether new, clean column names
 #'   should replace the existing column names.
+#' @title preview_names
+#' @example show and clean names for iris
+#' #iris_uci <- read_UCI("iris", "iris.data")
+#' #iris_uci_names <- preview_names(iris_uci)
 #'
 preview_names <- function(data, overwrite = TRUE) {
   #check if data has names

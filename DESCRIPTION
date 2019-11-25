@@ -25,5 +25,6 @@ Imports:
     readr,
     tibble,
     stringr,
-    openxlsx
+    openxlsx,
+    janitor
 Depends: R (>= 2.10)
