@@ -4,9 +4,8 @@
 \alias{read_UCI}
 \title{read_UCI}
 \usage{
-read_UCI(webpage, data_file, names_file = NA, data_delim = ",",
-  data_col_names = FALSE, names_delim = ",", names_col_names = FALSE,
-  ...)
+read_UCI(webpage, data_file, data_delim = ",", data_col_names = FALSE,
+  overwrite = FALSE, ...)
 }
 \arguments{
 \item{webpage}{A string that corresponds with the the name of the dataset as
@@ -20,27 +19,18 @@ Folder" on the homepage of the dataset. Correct spelling is important. If
 there is a file extension such as \code{.csv} or \code{.xlsx}, that needs to be
 included.}
 
-\item{names_file}{Default is NA. A string that corresponds with the secondary
-file name you wish to read in (typically names). This is visible on the
-page following the parent directory. You can also navigate to the page by
-selecting "Data Folder" on the homepage of the dataset. Correct spelling is
-important. If there is a file type such as \code{.csv}, that needs to be
-included.}
-
 \item{data_delim}{Default is ",". A single character delimiter used to
 separate fields within the data file.}
 
 \item{data_col_names}{Default is \code{FALSE}. Either \code{TRUE}, \code{FALSE}, or a
 character vector of column names for the data file.}
 
-\item{names_delim}{Default is ",". A single character delimiter used to
-separate fields within the names file.}
+\item{overwrite}{Default is \code{FALSE}. Either \code{TRUE} or \code{FALSE}. Gets passed to
+\code{write_disk()} within \code{httr::GET()}. \code{FALSE} prevents from overwriting any
+existing files.}
 
-\item{names_col_names}{Default is \code{FALSE}. Either \code{TRUE}, \code{FALSE}, or a
-character vector of column names for the names file.}
-
-\item{...}{Arguments to be based to \code{openxlsx::read.xlsx} (if ".xls"
-is detected) or to \code{readr::read_delim}.}
+\item{...}{Arguments to be based to \code{readxl::read_excel} (if ".xls" is
+detected) or to \code{readr::read_delim}.}
 }
 \description{
 read_UCI
@@ -51,4 +41,10 @@ las_vegas <- read_UCI("00397", "LasVegasTripAdvisorReviews-Dataset.csv", data_de
 
 #Read in Iris dataset
 iris_uci <- read_UCI("iris", "iris.data")
+
+#Read in Immunotherapy dataset
+immunotherapy <- read_UCI("00428", "Immunotherapy.xlsx")
+
+#Read in Breast Tissue dataset
+breast_tissue <- read_UCI("00192", "BreastTissue.xls", sheet = 2, overwrite = TRUE) 
 }

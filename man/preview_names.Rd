@@ -16,3 +16,9 @@ should replace the existing column names.}
 \description{
 preview_names
 }
+\examples{
+show and clean names for iris
+#iris_uci <- read_UCI("iris", "iris.data")
+#iris_uci_names <- preview_names(iris_uci)
+
+}
