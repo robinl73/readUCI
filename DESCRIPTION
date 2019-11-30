@@ -26,5 +26,6 @@ Imports:
     tibble,
     stringr,
     httr,
-    readxl
+    readxl,
+    janitor
 Depends: R (>= 2.10)
