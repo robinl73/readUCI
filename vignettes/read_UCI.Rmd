@@ -1,0 +1,19 @@
+---
+title: "read_UCI"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{read_UCI}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(readUCI)
+```

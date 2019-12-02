@@ -16,7 +16,9 @@ Authors@R:
 Description: What the package does (one paragraph).
 License: GPL-3
 Suggests: 
-    testthat (>= 2.1.0)
+    testthat (>= 2.1.0),
+    knitr,
+    rmarkdown
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
@@ -27,5 +29,7 @@ Imports:
     stringr,
     httr,
     readxl,
-    janitor
+    janitor,
+    purrr
 Depends: R (>= 2.10)
+VignetteBuilder: knitr
