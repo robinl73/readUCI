@@ -4,7 +4,7 @@
 \alias{preview_names}
 \title{preview_names}
 \usage{
-preview_names(data, overwrite = TRUE)
+preview_names(data, overwrite = TRUE, ...)
 }
 \arguments{
 \item{data}{An existing dataframe that has been pulled in from the UCI
@@ -12,6 +12,8 @@ database.}
 
 \item{overwrite}{Default is TRUE. Indicates whether new, clean column names
 should replace the existing column names.}
+
+\item{...}{Additional arguments to be passed to janitor::clean_names}
 }
 \description{
 preview_names
