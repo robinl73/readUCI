@@ -52,7 +52,6 @@ read_UCI <- function(webpage,
                            delim = data_delim,
                            col_names = data_col_names,
                            ...)}
-  #If names_file has not been provided, simply return a
   return(a)
 }
 

@@ -23,6 +23,7 @@ large_table <- url %>%
   html_nodes(css = "table") %>%
   html_table(fill = TRUE) 
 
+
 UCI_datasets <- large_table[[6]]
 UCI_datasets <- UCI_datasets[-1, -1:-2]
 
