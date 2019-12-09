@@ -1,0 +1,100 @@
+---
+title: "readUCI"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{read_UCI}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(readUCI)
+```
+
+# Introduction to the readUCI package
+
+The University of California Irvine Machine Learning Repository is a resource that provides access to hundreds of datasets. The challenge with using the repository is that understanding how to get the data into R isn't always intuitive and is inaccessible for beginners. `readUCI` helps make this process easier. 
+
+# `read_UCI()`
+
+The workhorse function of the package is `read_UCI()`. It builds off of the functionality of `readr::read_delim()` and `readxl::read_excel()` by pasting together a URL from the `webpage` and the `data_file`. 
+
+To know what to enter as arguments, look at the "Data Folder" on the page of the dataset you are interested in. 
+
+* The `webpage` is the text (in quotes) that comes directly after "Index of /ml/machine-learning-databases/". It is also part of the URL for that page. 
+
+* The `data_file` is the name of the dataset (also in quotes) you would like to import, also on that page of the "Data Folder". 
+
+The other arguments will change based on the structure and format of the data you are importing.
+
+```{r}
+iris <- read_UCI("iris", "iris.data")
+```
+
+## Troubleshooting 
+
+The tricky thing is that it can be hard to know what information you need to give `read_UCI()` to make sure your data is in the format you want. Here are some common things to look out for. 
+
+### Delimiters 
+
+```{r}
+las_vegas <- read_UCI("00397", "LasVegasTripAdvisorReviews-Dataset.csv")
+head(las_vegas)
+```
+
+If no delimiter is specified, `read_UCI()` defaults to a comma. However, in some cases this is not the delimiter used in the file. Here, `las_vegas` only has 1 column because `read_UCI()` was looking for commas, while the Las Vegas Strip dataset actually uses semicolons as a delimiter. 
+
+```{r}
+las_vegas <- read_UCI("00397",
+                                "LasVegasTripAdvisorReviews-Dataset.csv",
+                                data_delim = ";")
+
+head(las_vegas)
+```
+
+You can see that now we have 20 variables because `read_UCI()` is using the proper delimiter. We can also see that the first row is the actual column names, so we will change the `data_col_names` argument to be `TRUE`, meaning the first row will be used as column names instead of as data.
+
+```{r}
+las_vegas <- read_UCI("00397",
+                      "LasVegasTripAdvisorReviews-Dataset.csv",
+                      data_delim = ";",
+                      data_col_names = TRUE
+                      )
+
+head(las_vegas)
+```
+
+## Working with Excel files
+
+Because of the way that `readxl::read_excel()` works, if ".xls" is detected as part of the `data_file` the data gets written to the disk. This means that if you know you are working with an Excel file, you will need to think about the `overwrite` argument. The default is `FALSE`, which protects against overwriting a file that you already have in your directory of the same name. If you get an error with an Excel file, it may be because you are trying to import a dataset of the same name as something in your directory. You can circumvent this error by setting `overwrite` to `TRUE`. 
+
+### Sheets 
+
+```{r}
+breast_tissue <- read_UCI("00192", "BreastTissue.xls", overwrite = TRUE) 
+head(breast_tissue)
+```
+
+Clearly from what gets read in here is not actually the data. If you were to download the file and open it in Excel, you would see that there are actually two sheets in this file - "Description" and "Data". 
+
+If you are working with an Excel file and you get something that doesn't look like data, try a different sheet. 
+
+```{r}
+breast_tissue <- read_UCI("00192", "BreastTissue.xls", sheet = 2, overwrite = TRUE) 
+head(breast_tissue)
+```
+
+Note that in the code above, `overwrite = TRUE` is required so we can overwrite the version of `breast_tissue` that is the description. 
+
+# `preview_names()`
+
+# `UCI_datasets`
+
+`UCI_datasets` is the table with all of the currently available datasets. It is a resource to help you find data you are interested in. 

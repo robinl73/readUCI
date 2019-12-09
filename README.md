@@ -13,46 +13,48 @@ status](https://www.r-pkg.org/badges/version/readUCI)](https://CRAN.R-project.or
 status](https://travis-ci.org/emmal73/readUCI.svg?branch=master)](https://travis-ci.org/emmal73/readUCI)
 <!-- badges: end -->
 
-The goal of readUCI is to …
+`readUCI` facilitates the process of importing data from the [University
+of California Irvine Machine Learning
+Repository](%22https://archive.ics.uci.edu/ml/datasets.php%22).
 
-## Installation
-
-You can install the released version of readUCI from
-[CRAN](https://CRAN.R-project.org) with:
-
-``` r
-install.packages("readUCI")
-```
-
-## Example
-
-This is a basic example which shows you how to solve a common problem:
+You can install the package through GitHub:
 
 ``` r
+#devtools::install_github("emmal73/readUCI")
+
 library(readUCI)
-## basic example code
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
+## Common Use
+
+![Abalone](%22abalone_annotated.JPG%22)
 
 ``` r
-summary(cars)
-#>      speed           dist       
-#>  Min.   : 4.0   Min.   :  2.00  
-#>  1st Qu.:12.0   1st Qu.: 26.00  
-#>  Median :15.0   Median : 36.00  
-#>  Mean   :15.4   Mean   : 42.98  
-#>  3rd Qu.:19.0   3rd Qu.: 56.00  
-#>  Max.   :25.0   Max.   :120.00
+read_UCI("abalone", "abalone.data")
+#> Parsed with column specification:
+#> cols(
+#>   X1 = col_character(),
+#>   X2 = col_double(),
+#>   X3 = col_double(),
+#>   X4 = col_double(),
+#>   X5 = col_double(),
+#>   X6 = col_double(),
+#>   X7 = col_double(),
+#>   X8 = col_double(),
+#>   X9 = col_double()
+#> )
+#> # A tibble: 4,177 x 9
+#>    X1       X2    X3    X4    X5     X6     X7    X8    X9
+#>    <chr> <dbl> <dbl> <dbl> <dbl>  <dbl>  <dbl> <dbl> <dbl>
+#>  1 M     0.455 0.365 0.095 0.514 0.224  0.101  0.15     15
+#>  2 M     0.35  0.265 0.09  0.226 0.0995 0.0485 0.07      7
+#>  3 F     0.53  0.42  0.135 0.677 0.256  0.142  0.21      9
+#>  4 M     0.44  0.365 0.125 0.516 0.216  0.114  0.155    10
+#>  5 I     0.33  0.255 0.08  0.205 0.0895 0.0395 0.055     7
+#>  6 I     0.425 0.3   0.095 0.352 0.141  0.0775 0.12      8
+#>  7 F     0.53  0.415 0.15  0.778 0.237  0.142  0.33     20
+#>  8 F     0.545 0.425 0.125 0.768 0.294  0.150  0.26     16
+#>  9 M     0.475 0.37  0.125 0.509 0.216  0.112  0.165     9
+#> 10 F     0.55  0.44  0.15  0.894 0.314  0.151  0.32     19
+#> # ... with 4,167 more rows
 ```
-
-You’ll still need to render `README.Rmd` regularly, to keep `README.md`
-up-to-date.
-
-You can also embed plots, for example:
-
-<img src="man/figures/README-pressure-1.png" width="100%" />
-
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub\!

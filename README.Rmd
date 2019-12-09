@@ -21,37 +21,22 @@ knitr::opts_chunk$set(
 [![Travis build status](https://travis-ci.org/emmal73/readUCI.svg?branch=master)](https://travis-ci.org/emmal73/readUCI)
 <!-- badges: end -->
 
-The goal of readUCI is to ...
+`readUCI` facilitates the process of importing data from the [University of California Irvine Machine Learning Repository]("https://archive.ics.uci.edu/ml/datasets.php"). 
 
-## Installation
+You can install the package through GitHub:
 
-You can install the released version of readUCI from [CRAN](https://CRAN.R-project.org) with:
+```{r}
+#devtools::install_github("emmal73/readUCI")
 
-``` r
-install.packages("readUCI")
-```
-
-## Example
-
-This is a basic example which shows you how to solve a common problem:
-
-```{r example}
 library(readUCI)
-## basic example code
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
 
-```{r cars}
-summary(cars)
+## Common Use
+
+![Abalone]("abalone_annotated.jpg")
+
+```{r}
+read_UCI("abalone", "abalone.data")
 ```
 
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date.
-
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
-```
-
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub!
