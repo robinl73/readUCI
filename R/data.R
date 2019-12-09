@@ -18,7 +18,7 @@
 #' UCI_datasets %>%
 #' group_by(data_types) %>%
 #' count()}
-
+"UCI_datasets"
 #' Adult Data Set
 #' @doctType data
 #' @source https://archive.ics.uci.edu/ml/machine-learning-databases/adult/
@@ -47,7 +47,7 @@
 #' adult %>%
 #' group_by(marital_status) %>%
 #' count()}
-
+"adult"
 #' Wine Data Set
 #' @doctType data
 #' @source https://archive.ics.uci.edu/ml/datasets/Wine
@@ -75,7 +75,7 @@
 #' adult %>%
 #' group_by(class) %>%
 #' count()}
-
+"wine"
 #' Las Vegas Data Set
 #' @doctType data
 #' @source https://archive.ics.uci.edu/ml/datasets/Las+Vegas+Strip
@@ -109,8 +109,4 @@
 #' adult %>%
 #' group_by(hotel_stars) %>%
 #' count()}
-
-"UCI_datasets"
-"adult"
-"wine"
 "las_vegas"
