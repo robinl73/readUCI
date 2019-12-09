@@ -34,7 +34,8 @@ library(readUCI)
 
 ## Common Use
 
-![Abalone]("abalone_annotated.jpg")
+![Abalone](system.file("abalone_annotated"))
+
 
 ```{r}
 read_UCI("abalone", "abalone.data")
