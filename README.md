@@ -27,7 +27,7 @@ library(readUCI)
 
 ## Common Use
 
-![Abalone](%22abalone_annotated.JPG%22)
+![Abalone](%22inst/abalone_annotated.jpg%22)
 
 ``` r
 read_UCI("abalone", "abalone.data")
