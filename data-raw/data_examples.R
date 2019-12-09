@@ -29,3 +29,30 @@ usethis::use_data(wine, overwrite = TRUE)
 las_vegas <- read_UCI("00397", "LasVegasTripAdvisorReviews-Dataset.csv",
                       data_delim = ";", data_col_names = TRUE)
 las_vegas <- preview_names(las_vegas)
+las_vegas$score <- as.factor(las_vegas$score)
+las_vegas$period_of_stay <- as.factor(las_vegas$period_of_stay)
+levels(las_vegas$period_of_stay) <- c("Dec-Feb", "Mar-May", "Jun-Aug", "Sep-Nov")
+las_vegas$traveler_type <- as.factor(las_vegas$traveler_type)
+las_vegas$pool <- as.factor(las_vegas$pool)
+las_vegas$gym <- as.factor(las_vegas$gym)
+las_vegas$tennis_court <- as.factor(las_vegas$tennis_court)
+las_vegas$spa <- as.factor(las_vegas$spa)
+las_vegas$casino <- as.factor(las_vegas$casino)
+las_vegas$free_internet <- as.factor(las_vegas$free_internet)
+las_vegas <- las_vegas %>% 
+  mutate(hotel_stars = case_when(
+    hotel_stars == 35 ~ 3.5,
+    hotel_stars == 45 ~ 4.5,
+    TRUE ~ hotel_stars
+  ))
+las_vegas$user_continent <- as.factor(las_vegas$user_continent)
+las_vegas$review_month <- as.factor(las_vegas$review_month)
+levels(las_vegas$review_month) <- c("January", "February", "March", "April",
+                                    "May", "June", "July", "August", "September",
+                                    "October", "November", "December")
+las_vegas$review_weekday <- as.factor(las_vegas$review_weekday)
+levels(las_vegas$review_weekday) <- c("Monday", "Tuesday", "Wednesday",
+                                      "Thursday", "Friday", "Saturday",
+                                      "Sunday")
+
+usethis::use_data(las_vegas, overwrite = TRUE)
