@@ -25,19 +25,49 @@ knitr::opts_chunk$set(
 
 You can install the package through GitHub:
 
-```{r}
+```{r warning = FALSE, message = FALSE}
 #devtools::install_github("emmal73/readUCI")
 
 library(readUCI)
 ```
 
 
-## Common Use
+## Common Use: `readUCI`
 
 
 ![Abalone](inst/abalone_annotated.jpg)
 
-```{r}
-read_UCI("abalone", "abalone.data")
+```{r warning = FALSE, message = FALSE}
+abalone <- read_UCI("abalone", "abalone.data")
+head(abalone)
+```
+
+### Adding Names
+
+The data that gets imported does not have variable names, as we can see by just calling `preview_names`. 
+
+```{r echo = FALSE}
+#preview_names(abalone)
+```
+
+
+We can add those manually, based on the information provided in the `abalone.names` file. This can also be found at the homepage for the `Abalone`.
+
+```{r warning = FALSE, message = FALSE}
+abalone_names <- read_UCI("abalone", "abalone.names")
+abalone_names[58:79,]
+```
+
+Here we will manually add the names. 
+
+```{r warning = FALSE, message = FALSE}
+names(abalone) <- c("Sex", "Length", "Diameter", "Height", "Whole Weight", "Shucked Weight", "Viscera Weight", "Shell Weight", "Rings")
+
+```
+
+Next we can run `preview_names` to clean up the column names and display the names.
+
+```{r warning = FALSE}
+names(abalone) <- preview_names(abalone)
 ```
 
