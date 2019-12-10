@@ -4,15 +4,15 @@
 \alias{read_UCI}
 \title{read_UCI}
 \usage{
-read_UCI(webpage, data_file, data_delim = ",", data_col_names = FALSE,
-  overwrite = FALSE, ...)
+read_UCI(webpage, data, data_delim = ",", data_col_names = FALSE,
+  data_overwrite = FALSE, ...)
 }
 \arguments{
 \item{webpage}{A string that corresponds with the the name of the dataset as
 it appears in the \href{https://archive.ics.uci.edu/ml/machine-learning-databases/}{Parent Directory}.
 Note, you do not need to include "/", and correct spelling is important.}
 
-\item{data_file}{A string that corresponds with the primary file name you
+\item{data}{A string that corresponds with the primary file name you
 wish to read in (typically data). This is visible on the page following the
 parent directory. You can also navigate to the page by selecting "Data
 Folder" on the homepage of the dataset. Correct spelling is important. If
@@ -25,7 +25,7 @@ separate fields within the data file.}
 \item{data_col_names}{Default is \code{FALSE}. Either \code{TRUE}, \code{FALSE}, or a
 character vector of column names for the data file.}
 
-\item{overwrite}{Default is \code{FALSE}. Either \code{TRUE} or \code{FALSE}. Gets passed to
+\item{data_overwrite}{Default is \code{FALSE}. Either \code{TRUE} or \code{FALSE}. Gets passed to
 \code{write_disk()} within \code{httr::GET()}. \code{FALSE} prevents from overwriting any
 existing files.}
 
@@ -46,5 +46,5 @@ iris_uci <- read_UCI("iris", "iris.data")
 immunotherapy <- read_UCI("00428", "Immunotherapy.xlsx")
 
 #Read in Breast Tissue dataset
-breast_tissue <- read_UCI("00192", "BreastTissue.xls", sheet = 2, overwrite = TRUE) 
+breast_tissue <- read_UCI("00192", "BreastTissue.xls", sheet = 2, data_overwrite = TRUE) 
 }

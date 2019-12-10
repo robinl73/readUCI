@@ -3,7 +3,7 @@
 #'   it appears in the [Parent
 #'   Directory](https://archive.ics.uci.edu/ml/machine-learning-databases/).
 #'   Note, you do not need to include "/", and correct spelling is important.
-#' @param data_file A string that corresponds with the primary file name you
+#' @param data A string that corresponds with the primary file name you
 #'   wish to read in (typically data). This is visible on the page following the
 #'   parent directory. You can also navigate to the page by selecting "Data
 #'   Folder" on the homepage of the dataset. Correct spelling is important. If
@@ -13,7 +13,7 @@
 #'   separate fields within the data file.
 #' @param data_col_names Default is `FALSE`. Either `TRUE`, `FALSE`, or a
 #'   character vector of column names for the data file.
-#' @param overwrite Default is `FALSE`. Either `TRUE` or `FALSE`. Gets passed to
+#' @param data_overwrite Default is `FALSE`. Either `TRUE` or `FALSE`. Gets passed to
 #'   `write_disk()` within `httr::GET()`. `FALSE` prevents from overwriting any
 #'   existing files.
 #' @param ... Arguments to be based to `readxl::read_excel` (if ".xls" is
@@ -30,20 +30,20 @@
 #' immunotherapy <- read_UCI("00428", "Immunotherapy.xlsx")
 #'
 #' #Read in Breast Tissue dataset
-#' breast_tissue <- read_UCI("00192", "BreastTissue.xls", sheet = 2, overwrite = TRUE) 
+#' breast_tissue <- read_UCI("00192", "BreastTissue.xls", sheet = 2, data_overwrite = TRUE) 
 read_UCI <- function(webpage,
-                     data_file,
+                     data,
                      data_delim = ",",
                      data_col_names = FALSE,
-                     overwrite = FALSE,
+                     data_overwrite = FALSE,
                      ...){
   #Paste together a url using the webpage and data_file
-  url <- paste0("https://archive.ics.uci.edu/ml/machine-learning-databases/", webpage,"/", data_file)
+  url <- paste0("https://archive.ics.uci.edu/ml/machine-learning-databases/", webpage,"/", data)
   #If data_file is an excel object, create a using openxlsx::read.xlsx, the url,
   #and the dots
-  if((stringr::str_detect(data_file, ".xls") == TRUE)){
-    httr::GET(url, httr::write_disk(data_file, overwrite = overwrite))
-    a <- readxl::read_excel(data_file, ...)
+  if((stringr::str_detect(data, ".xls") == TRUE)){
+    httr::GET(url, httr::write_disk(data, overwrite = data_overwrite))
+    a <- readxl::read_excel(data, ...)
   }
   #If data_file is not an excel object, create a using readr::read_delim, the
   #url, data_delim, data_col_names, and the dots

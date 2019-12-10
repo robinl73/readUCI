@@ -45,30 +45,31 @@ The tricky thing is that it can be hard to know what information you need to giv
 ### Delimiters 
 
 ```{r}
-las_vegas <- read_UCI("00397", "LasVegasTripAdvisorReviews-Dataset.csv")
+las_vegas <- read_UCI(webpage = "00397",
+                      data = "LasVegasTripAdvisorReviews-Dataset.csv")
 head(las_vegas)
 ```
 
 If no delimiter is specified, `read_UCI()` defaults to a comma. However, in some cases this is not the delimiter used in the file. Here, `las_vegas` only has 1 column because `read_UCI()` was looking for commas, while the Las Vegas Strip dataset actually uses semicolons as a delimiter. 
 
 ```{r}
-las_vegas <- read_UCI("00397",
-                                "LasVegasTripAdvisorReviews-Dataset.csv",
-                                data_delim = ";")
+las_vegas2 <- read_UCI(webpage = "00397",
+                       data = "LasVegasTripAdvisorReviews-Dataset.csv",
+                       data_delim = ";")
 
-head(las_vegas)
+head(las_vegas2)
 ```
 
 You can see that now we have 20 variables because `read_UCI()` is using the proper delimiter. We can also see that the first row is the actual column names, so we will change the `data_col_names` argument to be `TRUE`, meaning the first row will be used as column names instead of as data.
 
 ```{r}
-las_vegas <- read_UCI("00397",
-                      "LasVegasTripAdvisorReviews-Dataset.csv",
+las_vegas3 <- read_UCI(webpage = "00397",
+                      data = "LasVegasTripAdvisorReviews-Dataset.csv",
                       data_delim = ";",
                       data_col_names = TRUE
                       )
 
-head(las_vegas)
+head(las_vegas3)
 ```
 
 ## Working with Excel files
@@ -78,7 +79,9 @@ Because of the way that `readxl::read_excel()` works, if ".xls" is detected as p
 ### Sheets 
 
 ```{r}
-breast_tissue <- read_UCI("00192", "BreastTissue.xls", overwrite = TRUE) 
+breast_tissue <- read_UCI(webpage = "00192",
+                          data = "BreastTissue.xls",
+                          data_overwrite = TRUE) 
 head(breast_tissue)
 ```
 
@@ -87,11 +90,14 @@ Clearly from what gets read in here is not actually the data. If you were to dow
 If you are working with an Excel file and you get something that doesn't look like data, try a different sheet. 
 
 ```{r}
-breast_tissue <- read_UCI("00192", "BreastTissue.xls", sheet = 2, overwrite = TRUE) 
+breast_tissue <- read_UCI(webpage = "00192",
+                          data = "BreastTissue.xls",
+                          data_overwrite = TRUE,
+                          sheet = 2) 
 head(breast_tissue)
 ```
 
-Note that in the code above, `overwrite = TRUE` is required so we can overwrite the version of `breast_tissue` that is the description. 
+Note that in the code above, `data_overwrite = TRUE` is required so we can overwrite the version of `breast_tissue` that is the description. 
 
 # `preview_names()`
 
