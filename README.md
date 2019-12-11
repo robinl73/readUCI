@@ -15,10 +15,10 @@ status](https://travis-ci.org/emmal73/readUCI.svg?branch=master)](https://travis
 
 `readUCI` facilitates the process of importing data from the [University
 of California Irvine Machine Learning
-Repository](%22https://archive.ics.uci.edu/ml/datasets.php%22). These
-datasets are especially good for machine learning practice, and can be
-used to create reproducible code examples. As of December, 2019, there
-are 488 available datasets.
+Repository](https://archive.ics.uci.edu/ml/datasets.php). These datasets
+are especially good for machine learning practice, and can be used to
+create reproducible code examples. As of December, 2019, there are 488
+available datasets.
 
 The dataset `UCI_datasets` has all of the available datasets from the
 repository and some characteristics, including data types and common
@@ -32,7 +32,7 @@ You can install the package through GitHub:
 library(readUCI)
 ```
 
-## Common Use: `readUCI`
+## Common Use: `read_UCI`
 
 ![Abalone](inst/abalone_annotated.jpg)
 
