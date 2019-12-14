@@ -14,7 +14,6 @@ adult$relationship <- as.factor(adult$relationship)
 adult$race <- as.factor(adult$race)
 adult$sex <- as.factor(adult$sex)
 adult$native_country <- as.factor(adult$native_country)
-
 usethis::use_data(adult, overwrite = TRUE)
 
 wine <- read_UCI("wine", "wine.data")
@@ -23,7 +22,6 @@ colnames(wine) <- c("class", "alcohol", "malic_acid", "ash", "ash_alcalinity",
                     "non_flavanoid_phenols", "proanthocyanins",
                     "color_intensity", "hue", "OD280_OD315_diluted", "proline")
 wine$class <- as.factor(wine$class)
-
 usethis::use_data(wine, overwrite = TRUE)
 
 las_vegas <- read_UCI("00397", "LasVegasTripAdvisorReviews-Dataset.csv",
@@ -54,7 +52,6 @@ las_vegas$review_weekday <- as.factor(las_vegas$review_weekday)
 levels(las_vegas$review_weekday) <- c("Monday", "Tuesday", "Wednesday",
                                       "Thursday", "Friday", "Saturday",
                                       "Sunday")
-
 usethis::use_data(las_vegas, overwrite = TRUE)
 
 tictactoe <- read_UCI("tic-tac-toe", "tic-tac-toe.data")
@@ -72,3 +69,28 @@ tictactoe$bottom_middle <- as.factor(tictactoe$bottom_middle)
 tictactoe$bottom_right <- as.factor(tictactoe$bottom_right)
 tictactoe$class <- as.factor(tictactoe$class)
 usethis::use_data(tictactoe, overwrite = TRUE)
+
+flags <- read_UCI("flags", "flag.data")
+colnames(flags) <- c("name", "landmass", "zone", "area", "population",
+                     "language", "religion", "bars", "stripes", "colours",
+                     "red", "green", "blue", "gold", "white", "black", "orange",
+                     "mainhue", "circles", "crosses", "saltires", "quarters",
+                     "sunstars", "crescent", "triangle", "icon", "animate",
+                     "text", "topleft", "botright")
+flags$landmass <- as.factor(flags$landmass)
+flags$zone <- as.factor(flags$zone)
+flags$language <- as.factor(flags$language)
+flags$religion <- as.factor(flags$religion)
+flags$red <- as.factor(flags$red)
+flags$green <- as.factor(flags$green)
+flags$blue <- as.factor(flags$blue)
+flags$gold <- as.factor(flags$gold)
+flags$white <- as.factor(flags$white)
+flags$black <- as.factor(flags$black)
+flags$orange <- as.factor(flags$orange)
+flags$crescent <- as.factor(flags$crescent)
+flags$triangle <- as.factor(flags$triangle)
+flags$icon <- as.factor(flags$icon)
+flags$animate <- as.factor(flags$animate)
+flags$text <- as.factor(flags$text)
+usethis::use_data(flags, overwrite = TRUE)
