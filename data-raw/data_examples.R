@@ -56,3 +56,19 @@ levels(las_vegas$review_weekday) <- c("Monday", "Tuesday", "Wednesday",
                                       "Sunday")
 
 usethis::use_data(las_vegas, overwrite = TRUE)
+
+tictactoe <- read_UCI("tic-tac-toe", "tic-tac-toe.data")
+colnames(tictactoe) <- c("top_left", "top_middle", "top_right",
+                         "middle_left", "center", "middle_right",
+                         "bottom_left", "bottom_middle", "bottom_right", "class")
+tictactoe$top_left <- as.factor(tictactoe$top_left)
+tictactoe$top_middle <- as.factor(tictactoe$top_middle)
+tictactoe$top_right <- as.factor(tictactoe$top_right)
+tictactoe$middle_left <- as.factor(tictactoe$middle_left)
+tictactoe$center <- as.factor(tictactoe$center)
+tictactoe$middle_right <- as.factor(tictactoe$middle_right)
+tictactoe$bottom_left <- as.factor(tictactoe$bottom_left)
+tictactoe$bottom_middle <- as.factor(tictactoe$bottom_middle)
+tictactoe$bottom_right <- as.factor(tictactoe$bottom_right)
+tictactoe$class <- as.factor(tictactoe$class)
+usethis::use_data(tictactoe, overwrite = TRUE)

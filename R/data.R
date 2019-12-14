@@ -110,3 +110,26 @@
 #' group_by(hotel_stars) %>%
 #' count()}
 "las_vegas"
+#' Tic-Tac-Toe Data Set
+#' @doctType data
+#' @source https://archive.ics.uci.edu/ml/datasets/Las+Vegas+Strip
+#' @format 
+#' \describe{
+#' \item{top_left}{The mark in the top left square of the board. x, o, or b (blank).}
+#' \item{top_middle}{The mark in the top middle square of the board. x, o, or b (blank).}
+#' \item{top_right}{The mark in the top right square of the board. x, o, or b (blank).}
+#' \item{middle_left}{The mark in the middle left square of the board. x, o, or b (blank).}
+#' \item{center}{The mark in the center square of the board. x, o, or b (blank).}
+#' \item{middle_right}{The mark in the middle right square of the board. x, o, or b (blank).}
+#' \item{bottom_left}{The mark in the bottom left square of the board. x, o, or b (blank).}
+#' \item{bottom_middle}{The mark in the bottom middle square of the board. x, o, or b (blank).}
+#' \item{bottom_right}{The mark in the bottom right square of the board. x, o, or b (blank).}
+#' \item{class}{The verdict of the game. Positive if x wins, negative otherwise.}
+#' @examples
+#' \dontrun{
+#' tictactoe %>%
+#' filter(class == "positive")}
+#' \dontrun{
+#' tictactoe %>%
+#' group_by(center) %>%
+#' count()}
