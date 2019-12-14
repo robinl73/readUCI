@@ -112,7 +112,7 @@
 "las_vegas"
 #' Tic-Tac-Toe Data Set
 #' @doctType data
-#' @source https://archive.ics.uci.edu/ml/datasets/Las+Vegas+Strip
+#' @source http://archive.ics.uci.edu/ml/datasets/Tic-Tac-Toe+Endgame
 #' @format 
 #' \describe{
 #' \item{top_left}{The mark in the top left square of the board. x, o, or b (blank).}
@@ -133,3 +133,4 @@
 #' tictactoe %>%
 #' group_by(center) %>%
 #' count()}
+"tictactoe"
