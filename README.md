@@ -78,8 +78,7 @@ abalone_names[58:79,]
 #> # ... with 12 more rows
 ```
 
-Here we will manually add the
-names.
+Here we will manually add the names.
 
 ``` r
 names(abalone) <- c("Sex", "Length", "Diameter", "Height", "Whole Weight", "Shucked Weight", "Viscera Weight", "Shell Weight", "Rings")
@@ -94,3 +93,17 @@ names(abalone) <- preview_names(abalone)
 #> [5] "whole_weight"   "shucked_weight" "viscera_weight" "shell_weight"  
 #> [9] "rings"
 ```
+
+## Included Datasets
+
+For your convenience, 5 datasets from the UCI database are imported and
+cleaned with the package. These are:
+
+  - `adult`: used to predict whether income is greater than $50K from
+    census data
+  - `flags`: contains details of countries and their flags
+  - `las_vegas`: contains features of online reviews of 21 hotels in Las
+    Vegas
+  - `tictactoe`: used for binary classification, based on possible
+    tic-tac-toe configurations
+  - `wine`: used to determine origin of wines based on chemical analysis

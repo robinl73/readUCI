@@ -73,3 +73,12 @@ Next we can run `preview_names` to clean up the column names and display the nam
 names(abalone) <- preview_names(abalone)
 ```
 
+## Included Datasets
+
+For your convenience, 5 datasets from the UCI database are imported and cleaned with the package. These are:
+
+* `adult`: used to predict whether income is greater than $50K from census data
+* `flags`: contains details of countries and their flags
+* `las_vegas`: contains features of online reviews of 21 hotels in Las Vegas
+* `tictactoe`: used for binary classification, based on possible tic-tac-toe configurations
+* `wine`: used to determine origin of wines based on chemical analysis
