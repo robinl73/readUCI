@@ -3,7 +3,7 @@
 \docType{data}
 \name{UCI_datasets}
 \alias{UCI_datasets}
-\title{UCI Machine Learning Repository Dataset of Available Datasets}
+\title{UCI Machine Learning Repository Available Datasets}
 \format{\describe{
 \item{name}{The name of the dataset.}
 \item{data_types}{The types of data in the dataset. Can include Multivariate, Univariate, Sequential, Time-Series, Text, Domain-Theory, etc.}
@@ -13,13 +13,13 @@
 \item{num_attributes}{The number of attributes (variables) in the dataset.}
 \item{year}{The year the dataset is from.}}}
 \source{
-https://archive.ics.uci.edu/ml/datasets.php
+(https://archive.ics.uci.edu/ml/datasets.php)
 }
 \usage{
 UCI_datasets
 }
 \description{
-UCI Machine Learning Repository Dataset of Available Datasets
+UCI Machine Learning Repository Available Datasets
 }
 \examples{
 \dontrun{

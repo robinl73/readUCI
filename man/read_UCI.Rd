@@ -2,7 +2,7 @@
 % Please edit documentation in R/read_UCI.R
 \name{read_UCI}
 \alias{read_UCI}
-\title{read_UCI}
+\title{Read files from the UCI Machine Learning Repository}
 \usage{
 read_UCI(webpage, data, data_delim = ",", data_col_names = FALSE,
   data_overwrite = FALSE, ...)
@@ -33,7 +33,7 @@ existing files.}
 detected) or to \code{readr::read_delim}.}
 }
 \description{
-read_UCI
+Read files from the UCI Machine Learning Repository
 }
 \examples{
 #Read in the Las Vegas Trip Advisor Reviews dataset

@@ -18,7 +18,7 @@
 #'   existing files.
 #' @param ... Arguments to be based to `readxl::read_excel` (if ".xls" is
 #'   detected) or to `readr::read_delim`.
-#' @title read_UCI
+#' @title Read files from the UCI Machine Learning Repository
 #' @examples
 #' #Read in the Las Vegas Trip Advisor Reviews dataset
 #' las_vegas <- read_UCI("00397", "LasVegasTripAdvisorReviews-Dataset.csv", data_delim = ";")

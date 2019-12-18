@@ -1,6 +1,6 @@
-#' UCI Machine Learning Repository Dataset of Available Datasets
+#' UCI Machine Learning Repository Available Datasets
 #' @docType data
-#' @source https://archive.ics.uci.edu/ml/datasets.php
+#' @source (https://archive.ics.uci.edu/ml/datasets.php)
 #' @format
 #' \describe{
 #' \item{name}{The name of the dataset.}
