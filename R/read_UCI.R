@@ -37,6 +37,12 @@ read_UCI <- function(webpage,
                      data_col_names = FALSE,
                      data_overwrite = FALSE,
                      ...){
+  if(!is.character(webpage)){
+    stop("webpage requires a string")
+  }
+  if(!is.character(data)){
+    stop("data requires a string")
+  }
   #Paste together a url using the webpage and data_file
   url <- paste0("https://archive.ics.uci.edu/ml/machine-learning-databases/", webpage,"/", data)
   #If data_file is an excel object, create a using openxlsx::read.xlsx, the url,
