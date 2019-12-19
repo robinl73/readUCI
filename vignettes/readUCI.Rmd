@@ -101,6 +101,16 @@ Note that in the code above, `data_overwrite = TRUE` is required so we can overw
 
 # `preview_names()`
 
+`preview_names` is a function that builds off of the capabilities of `janitor::clean_names()`. By default, it puts the column names into snake case, displays the names, and invisibly returns the data. To save this cleaned version of the names, assign the output of the function back into the dataset.
+
+```{r}
+breast_tissue <- preview_names(breast_tissue)
+```
+
+The above displays the column names in snake case, and `breast_tissue` now uses those column names. Different cases supported by `janitor::clean_names()` can be specified as additional arguments to the function.
+
+If you would like to not replace the column names but still assign the output, you can add `overwrite = FALSE` as an additional argument.
+
 # `UCI_datasets`
 
-`UCI_datasets` is the table with all of the currently available datasets. It is a resource to help you find data you are interested in. 
+`UCI_datasets` is a table with all of the currently available datasets and a selection of their features. It is a resource to help you find data you are interested in. 
