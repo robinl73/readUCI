@@ -1,21 +1,21 @@
-class_test <- function(dataset, test_size, seed) {
-  # Seed is for the random seed
-  row <- nrow(dataset)
-  col <- ncol(dataset)
-  set.seed(seed)
-  out <- list()
+test_train_split <- function(dataset, test_size  ) {
+  a <- nrow(dataset)
+  b <- ncol(dataset)
+  all_datasets <- list()
   
-  out$test_set <- dataset %>%
-    sample_n(test_size)
+  rand_data <- dataset[sample(a),]
   
-  out$train_set <- dataset %>%
-    setdiff(test_set)
+  all_datasets$test_set <- rand_data %>%
+    slice(1:test_size)
   
-  out$test_input <- test_set[c(1:(col-1))]
-  out$test_output <- train_set[c(col)]
+  all_datasets$train_set <- rand_data %>%
+    slice((test_size+1):a)
   
-  out$train_input <- train_set[c(1:(col-1))]
-  out$train_output <- train_set[c(col)]
+  all_datasets$test_input <- all_datasets$test_set[c(1:(b-1))]
+  all_datasets$test_output <- all_datasets$train_set[b]
   
-  return(out)
+  all_datasets$train_input <- all_datasets$train_set[c(1:(b-1))]
+  all_datasets$train_output <- all_datasets$train_set[b]
+  
+  return(all_datasets)
 }
