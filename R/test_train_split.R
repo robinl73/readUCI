@@ -1,9 +1,14 @@
-test_train_split <- function(dataset, test_size  ) {
-  a <- nrow(dataset)
-  b <- ncol(dataset)
+#' @export
+#' @param data An existing data frame that has been pulled in from the UCI database.
+#' @param test_size An integer that describes the size of the test set as the number of rows in the new test set. 
+#' @title test_train_split
+
+test_train_split <- function(data, test_size  ) {
+  a <- nrow(data)
+  b <- ncol(data)
   all_datasets <- list()
   
-  rand_data <- dataset[sample(a),]
+  rand_data <- data[sample(a),]
   
   all_datasets$test_set <- rand_data %>%
     slice(1:test_size)
