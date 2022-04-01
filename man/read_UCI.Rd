@@ -4,8 +4,14 @@
 \alias{read_UCI}
 \title{Read files from the UCI Machine Learning Repository}
 \usage{
-read_UCI(webpage, data, data_delim = ",", data_col_names = FALSE,
-  data_overwrite = FALSE, ...)
+read_UCI(
+  webpage,
+  data,
+  data_delim = ",",
+  data_col_names = FALSE,
+  data_overwrite = FALSE,
+  ...
+)
 }
 \arguments{
 \item{webpage}{A string that corresponds with the the name of the dataset as

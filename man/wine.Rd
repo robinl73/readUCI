@@ -4,7 +4,8 @@
 \name{wine}
 \alias{wine}
 \title{Wine Data Set}
-\format{\describe{
+\format{
+\describe{
 \item{class}{Type of wine.}
 \item{alcohol}{Alcohol.}
 \item{malic_acid}{Malic acid.}
@@ -18,7 +19,8 @@
 \item{color_intensity}{Color intensity.}
 \item{hue}{Hue.}
 \item{OD280_OD315_diluted}{OD280_OD315_diluted.}
-\item{proline}{Proline.}}}
+\item{proline}{Proline.}}
+}
 \source{
 https://archive.ics.uci.edu/ml/datasets/Wine
 }
