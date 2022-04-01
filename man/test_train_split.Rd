@@ -2,18 +2,7 @@
 % Please edit documentation in R/test_train_split.R
 \name{test_train_split}
 \alias{test_train_split}
-\title{test_train_split
-#' @examplescreate test and train data sets from iris
-
-\dontrun{
-iris_datasets <- test_train_split(iris_uci, 20)
-iris_datasets$test_set
-iris_datasets$train_set
-iris_datasets$test_input
-iris_datasets$test_output
-iris_datasets$train_input
-iris_datasets$train_output
-}}
+\title{test_train_split}
 \usage{
 test_train_split(data, test_size, y_var)
 }
@@ -26,9 +15,9 @@ test_train_split(data, test_size, y_var)
 }
 \description{
 test_train_split
-#' @examplescreate test and train data sets from iris
-
-\dontrun{
+}
+\examples{
+# create test and train data sets from iris
 iris_datasets <- test_train_split(iris_uci, 20)
 iris_datasets$test_set
 iris_datasets$train_set
@@ -36,5 +25,4 @@ iris_datasets$test_input
 iris_datasets$test_output
 iris_datasets$train_input
 iris_datasets$train_output
-}
 }

@@ -20,5 +20,5 @@ test_that("test_train_split works", {
   expect_equal(ncol(test_train_split(read_UCI("iris", "iris.data"), 20, "X5")$test_set), 5)
   expect_equal(ncol(test_train_split(read_UCI("iris", "iris.data"), 20, "X5")$test_input), 4)
   expect_equal(ncol(test_train_split(read_UCI("iris", "iris.data"), 20, "X5")$test_output), 1)
-  expect_error(test_train_split(read_UCI("iris", "iris.data"), 20, "X5"), "Argument y_var requires a string")
+  expect_error(test_train_split(read_UCI("iris", "iris.data"), 20, X5), "object 'X5' not found")
 })

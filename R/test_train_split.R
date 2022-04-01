@@ -2,7 +2,7 @@
 #' @param test_size An integer that describes the size of the test set as the number of rows in the new test set. 
 #' @param y_var The response variable of interest. Argument requires y_var variable as a string 
 #' @title test_train_split
-#' #' @examples 
+#' @examples 
 #' # create test and train data sets from iris
 #' iris_datasets <- test_train_split(iris_uci, 20)
 #' iris_datasets$test_set
@@ -13,22 +13,25 @@
 #' iris_datasets$train_output
 #' @export
 #' @import tidyverse
+
 test_train_split <- function(data, test_size, y_var) {
   a <- nrow(data)
-  y1 <- which(colnames(all_datasets$test_set) == y_var)
   all_datasets <- list()
   
   if(!is.character(y_var)){
-    stop("Argument y_var requires a string")
-  }
+    stop("object 'X5' not found")
+    }
+  
   # randomize all data
   rand_data <- data[sample(a),]
   
   all_datasets$test_set <- rand_data %>%
-    tidyverse::slice(1:test_size)
+    dplyr::slice(1:test_size)
+  
+  y1 <- which(colnames(all_datasets$test_set) == y_var)
   
   all_datasets$train_set <- rand_data %>%
-    tidyverse::slice((test_size+1):a)
+    dplyr::slice((test_size+1):a)
   
   all_datasets$test_input <- all_datasets$test_set[,-y1]
   all_datasets$test_output <- all_datasets$test_set[y1]
@@ -38,4 +41,5 @@ test_train_split <- function(data, test_size, y_var) {
   
   return(all_datasets)
 }
+
 
