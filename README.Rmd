@@ -80,7 +80,7 @@ When performing classification methods, instead of splitting test and training d
 ```{r}
 iris_uci <- read_UCI("iris", "iris.data")
 
-iris_datasets <- test_train_split(iris_uci, 20)
+iris_datasets <- test_train_split(iris_uci, 20, "X5")
 iris_datasets$test_set
 iris_datasets$train_set
 ```

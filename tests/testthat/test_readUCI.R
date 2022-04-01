@@ -9,3 +9,8 @@ test_that("preview_names works", {
   expect_type(preview_names(adult), "list")
   expect_error(preview_names(read_UCI("wine", "wine.data")), "Your data does not have variable names.")
 })
+
+test_that("test_train_split works", {
+  expect_type(test_train_split(read_UCI("iris", "iris.data"), 20), "list")
+  expect_equal(length(test_train_split(read_UCI("iris", "iris.data"), 20)), 6)
+})

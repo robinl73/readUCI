@@ -1,7 +1,7 @@
-library(tidyverse)
 #' @export
 #' @param data An existing data frame that has been pulled in from the UCI database.
 #' @param test_size An integer that describes the size of the test set as the number of rows in the new test set. 
+#' @param y_var
 #' @title test_train_split
 #' #' @examples 
 #' # create test and train data sets from iris
@@ -17,24 +17,29 @@ library(tidyverse)
 
 #' @import tidyverse
 
-test_train_split <- function(data, test_size  ) {
+test_train_split <- function(data, test_size, y_var) {
   a <- nrow(data)
-  b <- ncol(data)
+  y1 <- which(colnames(all_datasets$test_set) == y_var)
   all_datasets <- list()
   
+  if(!is.character(y_var)){
+    stop("Arguement y_var requires a string")
+  }
+  # randomize all data
   rand_data <- data[sample(a),]
   
   all_datasets$test_set <- rand_data %>%
-    slice(1:test_size)
+    tidyverse::slice(1:test_size)
   
   all_datasets$train_set <- rand_data %>%
-    slice((test_size+1):a)
+    tidyverse::slice((test_size+1):a)
   
-  all_datasets$test_input <- all_datasets$test_set[c(1:(b-1))]
-  all_datasets$test_output <- all_datasets$test_set[b]
+  all_datasets$test_input <- all_datasets$test_set[,-y1]
+  all_datasets$test_output <- all_datasets$test_set[y1]
   
-  all_datasets$train_input <- all_datasets$train_set[c(1:(b-1))]
-  all_datasets$train_output <- all_datasets$train_set[b]
+  all_datasets$train_input <- all_datasets$train_set[,-y1]
+  all_datasets$train_output <- all_datasets$train_set[y1]
   
   return(all_datasets)
 }
+
