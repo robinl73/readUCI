@@ -32,6 +32,7 @@ Imports:
     httr,
     readxl,
     janitor,
-    purrr
+    purrr,
+    tidyverse
 Depends: R (>= 2.10)
 VignetteBuilder: knitr

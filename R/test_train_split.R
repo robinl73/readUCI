@@ -14,6 +14,7 @@
 #' iris_datasets$train_output
 #'}
 
+
 test_train_split <- function(data, test_size  ) {
   a <- nrow(data)
   b <- ncol(data)
@@ -22,10 +23,10 @@ test_train_split <- function(data, test_size  ) {
   rand_data <- data[sample(a),]
   
   all_datasets$test_set <- rand_data %>%
-    slice(1:test_size)
+    tidyverse::slice(1:test_size)
   
   all_datasets$train_set <- rand_data %>%
-    slice((test_size+1):a)
+    tidyverse::slice((test_size+1):a)
   
   all_datasets$test_input <- all_datasets$test_set[c(1:(b-1))]
   all_datasets$test_output <- all_datasets$test_set[b]
