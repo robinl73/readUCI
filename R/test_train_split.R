@@ -1,4 +1,3 @@
-library(tidyverse)
 #' @export
 #' @param data An existing data frame that has been pulled in from the UCI database.
 #' @param test_size An integer that describes the size of the test set as the number of rows in the new test set. 
@@ -16,7 +15,6 @@ library(tidyverse)
 #'}
 
 #' @import tidyverse
-
 test_train_split <- function(data, test_size  ) {
   a <- nrow(data)
   b <- ncol(data)
