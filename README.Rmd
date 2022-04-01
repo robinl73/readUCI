@@ -73,6 +73,28 @@ Next we can run `preview_names` to clean up the column names and display the nam
 names(abalone) <- preview_names(abalone)
 ```
 
+## Creating Test and Training Data Sets
+
+When performing classification methods, instead of splitting test and training data and separating variables into input and output data for class manually, we can use the 'test_train_split' function.
+
+```{r}
+iris_uci <- read_UCI("iris", "iris.data")
+
+iris_datasets <- test_train_split(iris_uci, 20)
+iris_datasets$test_set
+iris_datasets$train_set
+```
+
+The 'test_train_split' function also creates test and training data input and outcome variables. Where the input variable represents 'X', and the outcome variable represents the response variable of interest 'Y.'
+
+```{r}
+iris_datasets$test_input
+iris_datasets$test_output
+iris_datasets$train_input
+iris_datasets$train_output
+```
+
+
 ## Included Datasets
 
 For your convenience, 5 datasets from the UCI database are imported and cleaned with the package. These are:
