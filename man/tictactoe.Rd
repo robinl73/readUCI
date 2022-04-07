@@ -4,7 +4,19 @@
 \name{tictactoe}
 \alias{tictactoe}
 \title{Tic-Tac-Toe Data Set}
-\format{An object of class \code{spec_tbl_df} (inherits from \code{tbl_df}, \code{tbl}, \code{data.frame}) with 958 rows and 10 columns.}
+\format{
+\describe{
+\item{top_left}{The mark in the top left square of the board. x, o, or b (blank).}
+\item{top_middle}{The mark in the top middle square of the board. x, o, or b (blank).}
+\item{top_right}{The mark in the top right square of the board. x, o, or b (blank).}
+\item{middle_left}{The mark in the middle left square of the board. x, o, or b (blank).}
+\item{center}{The mark in the center square of the board. x, o, or b (blank).}
+\item{middle_right}{The mark in the middle right square of the board. x, o, or b (blank).}
+\item{bottom_left}{The mark in the bottom left square of the board. x, o, or b (blank).}
+\item{bottom_middle}{The mark in the bottom middle square of the board. x, o, or b (blank).}
+\item{bottom_right}{The mark in the bottom right square of the board. x, o, or b (blank).}
+\item{class}{The verdict of the game. Positive if x wins, negative otherwise.}
+}
 \source{
 http://archive.ics.uci.edu/ml/datasets/Tic-Tac-Toe+Endgame
 }

@@ -11,6 +11,14 @@ test_that("preview_names works", {
 })
 
 test_that("test_train_split works", {
-  expect_type(test_train_split(read_UCI("iris", "iris.data"), 20), "list")
-  expect_equal(length(test_train_split(read_UCI("iris", "iris.data"), 20)), 6)
+  expect_type(test_train_split(read_UCI("iris", "iris.data"), 20, "X5"), "list")
+  expect_equal(length(test_train_split(read_UCI("iris", "iris.data"), 20, "X5")), 6)
+  expect_equal(nrow(test_train_split(read_UCI("iris", "iris.data"), 20, "X5")$test_set), 20)
+  expect_equal(nrow(test_train_split(read_UCI("iris", "iris.data"), 20, "X5")$train_set), 130)
+  expect_equal(nrow(test_train_split(read_UCI("iris", "iris.data"), 20, "X5")$test_input), 20)
+  expect_equal(nrow(test_train_split(read_UCI("iris", "iris.data"), 20, "X5")$train_input), 130)
+  expect_equal(ncol(test_train_split(read_UCI("iris", "iris.data"), 20, "X5")$test_set), 5)
+  expect_equal(ncol(test_train_split(read_UCI("iris", "iris.data"), 20, "X5")$test_input), 4)
+  expect_equal(ncol(test_train_split(read_UCI("iris", "iris.data"), 20, "X5")$test_output), 1)
+  expect_error(test_train_split(read_UCI("iris", "iris.data"), 20, X5), "object 'X5' not found")
 })
