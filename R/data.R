@@ -13,16 +13,18 @@
 #' @examples
 #' \dontrun{
 #' UCI_datasets %>%
-#' filter(Categorical %in% attribute_types)}
+#'   filter(Categorical %in% attribute_types)
+#' }
 #' \dontrun{
 #' UCI_datasets %>%
-#' group_by(data_types) %>%
-#' count()}
+#'   group_by(data_types) %>%
+#'   count()
+#' }
 "UCI_datasets"
 #' Adult Data Set
 #' @docType data
 #' @source https://archive.ics.uci.edu/ml/machine-learning-databases/adult/
-#' @format 
+#' @format
 #' \describe{
 #' \item{age}{The individual's age.}
 #' \item{workclass}{The individual's type of employment. Can include Private, Federal-gov, Without-pay, etc.}
@@ -42,16 +44,18 @@
 #' @examples
 #' \dontrun{
 #' adult %>%
-#' filter(salary = "<=50K")}
+#'   filter(salary = "<=50K")
+#' }
 #' \dontrun{
 #' adult %>%
-#' group_by(marital_status) %>%
-#' count()}
+#'   group_by(marital_status) %>%
+#'   count()
+#' }
 "adult"
 #' Wine Data Set
 #' @docType data
 #' @source https://archive.ics.uci.edu/ml/datasets/Wine
-#' @format 
+#' @format
 #' \describe{
 #' \item{class}{Type of wine.}
 #' \item{alcohol}{Alcohol.}
@@ -70,16 +74,18 @@
 #' @examples
 #' \dontrun{
 #' wine %>%
-#' arrange(total_phenols)}
+#'   arrange(total_phenols)
+#' }
 #' \dontrun{
 #' adult %>%
-#' group_by(class) %>%
-#' count()}
+#'   group_by(class) %>%
+#'   count()
+#' }
 "wine"
 #' Las Vegas Data Set
 #' @docType data
 #' @source https://archive.ics.uci.edu/ml/datasets/Las+Vegas+Strip
-#' @format 
+#' @format
 #' \describe{
 #' \item{user_country}{User country.}
 #' \item{nr_reviews}{Number of reviews by user.}
@@ -104,16 +110,18 @@
 #' @examples
 #' \dontrun{
 #' las_vegas %>%
-#' filter(score == 5)}
+#'   filter(score == 5)
+#' }
 #' \dontrun{
 #' adult %>%
-#' group_by(hotel_stars) %>%
-#' count()}
+#'   group_by(hotel_stars) %>%
+#'   count()
+#' }
 "las_vegas"
 #' Tic-Tac-Toe Data Set
 #' @docType data
 #' @source http://archive.ics.uci.edu/ml/datasets/Tic-Tac-Toe+Endgame
-#' @format 
+#' @format
 #' \describe{
 #' \item{top_left}{The mark in the top left square of the board. x, o, or b (blank).}
 #' \item{top_middle}{The mark in the top middle square of the board. x, o, or b (blank).}
@@ -128,16 +136,18 @@
 #' @examples
 #' \dontrun{
 #' tictactoe %>%
-#' filter(class == "positive")}
+#'   filter(class == "positive")
+#' }
 #' \dontrun{
 #' tictactoe %>%
-#' group_by(center) %>%
-#' count()}
+#'   group_by(center) %>%
+#'   count()
+#' }
 "tictactoe"
 #' Flags Data Set
 #' @docType data
 #' @source http://archive.ics.uci.edu/ml/datasets/Flags
-#' @format 
+#' @format
 #' \describe{
 #' \item{name}{Name of country.}
 #' \item{landmass}{Continent of country. 1 = North America, 2 = South America, 3 = Europe, 4 = Africa, 5 = Asia, 6 = Oceania.}
@@ -172,9 +182,11 @@
 #' @examples
 #' \dontrun{
 #' flags %>%
-#' filter(bars >= 3)}
+#'   filter(bars >= 3)
+#' }
 #' \dontrun{
 #' flags %>%
-#' group_by(mainhue) %>%
-#' count()}
+#'   group_by(mainhue) %>%
+#'   count()
+#' }
 "flags"
