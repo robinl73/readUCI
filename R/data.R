@@ -20,7 +20,7 @@
 #' count()}
 "UCI_datasets"
 #' Adult Data Set
-#' @doctType data
+#' @docType data
 #' @source https://archive.ics.uci.edu/ml/machine-learning-databases/adult/
 #' @format 
 #' \describe{
@@ -49,7 +49,7 @@
 #' count()}
 "adult"
 #' Wine Data Set
-#' @doctType data
+#' @docType data
 #' @source https://archive.ics.uci.edu/ml/datasets/Wine
 #' @format 
 #' \describe{
@@ -77,7 +77,7 @@
 #' count()}
 "wine"
 #' Las Vegas Data Set
-#' @doctType data
+#' @docType data
 #' @source https://archive.ics.uci.edu/ml/datasets/Las+Vegas+Strip
 #' @format 
 #' \describe{
@@ -111,7 +111,7 @@
 #' count()}
 "las_vegas"
 #' Tic-Tac-Toe Data Set
-#' @doctType data
+#' @docType data
 #' @source http://archive.ics.uci.edu/ml/datasets/Tic-Tac-Toe+Endgame
 #' @format 
 #' \describe{
@@ -135,7 +135,7 @@
 #' count()}
 "tictactoe"
 #' Flags Data Set
-#' @doctType data
+#' @docType data
 #' @source http://archive.ics.uci.edu/ml/datasets/Flags
 #' @format 
 #' \describe{
