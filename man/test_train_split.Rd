@@ -2,7 +2,7 @@
 % Please edit documentation in R/test_train_split.R
 \name{test_train_split}
 \alias{test_train_split}
-\title{test_train_split}
+\title{Creating test and training data sets for machine learning classification methods}
 \usage{
 test_train_split(data, test_size, y_var)
 }
@@ -14,11 +14,12 @@ test_train_split(data, test_size, y_var)
 \item{y_var}{The response variable of interest. Argument requires y_var variable as a string}
 }
 \description{
-test_train_split
+Creating test and training data sets for machine learning classification methods
 }
 \examples{
 # create test and train data sets from iris
-iris_datasets <- test_train_split(iris_uci, 20)
+iris_uci <- read_UCI("iris", "iris.data")
+iris_datasets <- test_train_split(iris_uci, 20, "X5")
 iris_datasets$test_set
 iris_datasets$train_set
 iris_datasets$test_input
