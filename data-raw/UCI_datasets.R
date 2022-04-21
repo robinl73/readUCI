@@ -19,6 +19,14 @@ library(tidyverse)
 
 url <- read_html("https://archive.ics.uci.edu/ml/datasets.php")
 
+links <- url %>%
+  html_nodes("tr") %>%
+  html_nodes("a") %>%
+  html_attr("href") %>%
+  unique()
+
+links[-c(1:45)]
+
 large_table <- url %>%
   html_nodes(css = "table") %>%
   html_table(fill = TRUE) 
