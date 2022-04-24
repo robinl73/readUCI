@@ -34,10 +34,12 @@ Adult Data Set
 \examples{
 \dontrun{
 adult \%>\%
-filter(salary = "<=50K")}
+  filter(salary = "<=50K")
+}
 \dontrun{
 adult \%>\%
-group_by(marital_status) \%>\%
-count()}
+  group_by(marital_status) \%>\%
+  count()
+}
 }
 \keyword{datasets}

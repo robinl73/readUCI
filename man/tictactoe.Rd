@@ -29,10 +29,12 @@ Tic-Tac-Toe Data Set
 \examples{
 \dontrun{
 tictactoe \%>\%
-filter(class == "positive")}
+  filter(class == "positive")
+}
 \dontrun{
 tictactoe \%>\%
-group_by(center) \%>\%
-count()}
+  group_by(center) \%>\%
+  count()
+}
 }
 \keyword{datasets}

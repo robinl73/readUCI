@@ -19,7 +19,7 @@ should replace the existing column names.}
 preview_names
 }
 \examples{
-#show and clean names for iris
+# show and clean names for iris
 \dontrun{
 iris_uci <- read_UCI("iris", "iris.data")
 iris_uci_names <- preview_names(iris_uci)

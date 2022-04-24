@@ -42,15 +42,15 @@ detected) or to \code{readr::read_delim}.}
 Read files from the UCI Machine Learning Repository
 }
 \examples{
-#Read in the Las Vegas Trip Advisor Reviews dataset
+# Read in the Las Vegas Trip Advisor Reviews dataset
 las_vegas <- read_UCI("00397", "LasVegasTripAdvisorReviews-Dataset.csv", data_delim = ";")
 
-#Read in Iris dataset
+# Read in Iris dataset
 iris_uci <- read_UCI("iris", "iris.data")
 
-#Read in Immunotherapy dataset
+# Read in Immunotherapy dataset
 immunotherapy <- read_UCI("00428", "Immunotherapy.xlsx")
 
-#Read in Breast Tissue dataset
-breast_tissue <- read_UCI("00192", "BreastTissue.xls", sheet = 2, data_overwrite = TRUE) 
+# Read in Breast Tissue dataset
+breast_tissue <- read_UCI("00192", "BreastTissue.xls", sheet = 2, data_overwrite = TRUE)
 }

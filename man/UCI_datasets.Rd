@@ -26,10 +26,12 @@ UCI Machine Learning Repository Available Datasets
 \examples{
 \dontrun{
 UCI_datasets \%>\%
-filter(Categorical \%in\% attribute_types)}
+  filter(Categorical \%in\% attribute_types)
+}
 \dontrun{
 UCI_datasets \%>\%
-group_by(data_types) \%>\%
-count()}
+  group_by(data_types) \%>\%
+  count()
+}
 }
 \keyword{datasets}

@@ -39,10 +39,12 @@ Las Vegas Data Set
 \examples{
 \dontrun{
 las_vegas \%>\%
-filter(score == 5)}
+  filter(score == 5)
+}
 \dontrun{
 adult \%>\%
-group_by(hotel_stars) \%>\%
-count()}
+  group_by(hotel_stars) \%>\%
+  count()
+}
 }
 \keyword{datasets}
