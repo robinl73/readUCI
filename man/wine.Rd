@@ -30,15 +30,4 @@ wine
 \description{
 Wine Data Set
 }
-\examples{
-\dontrun{
-wine \%>\%
-  arrange(total_phenols)
-}
-\dontrun{
-adult \%>\%
-  group_by(class) \%>\%
-  count()
-}
-}
 \keyword{datasets}

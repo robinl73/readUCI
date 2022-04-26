@@ -26,15 +26,4 @@ tictactoe
 \description{
 Tic-Tac-Toe Data Set
 }
-\examples{
-\dontrun{
-tictactoe \%>\%
-  filter(class == "positive")
-}
-\dontrun{
-tictactoe \%>\%
-  group_by(center) \%>\%
-  count()
-}
-}
 \keyword{datasets}

@@ -36,15 +36,4 @@ las_vegas
 \description{
 Las Vegas Data Set
 }
-\examples{
-\dontrun{
-las_vegas \%>\%
-  filter(score == 5)
-}
-\dontrun{
-adult \%>\%
-  group_by(hotel_stars) \%>\%
-  count()
-}
-}
 \keyword{datasets}

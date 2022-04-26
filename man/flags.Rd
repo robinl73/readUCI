@@ -46,15 +46,4 @@ flags
 \description{
 Flags Data Set
 }
-\examples{
-\dontrun{
-flags \%>\%
-  filter(bars >= 3)
-}
-\dontrun{
-flags \%>\%
-  group_by(mainhue) \%>\%
-  count()
-}
-}
 \keyword{datasets}
