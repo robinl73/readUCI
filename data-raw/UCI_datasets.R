@@ -29,13 +29,18 @@ name <- url %>%
 
 name <- name[-c(1:42)]
 
-links <- url %>%
+links_list <- url %>%
   html_nodes("tr") %>%
   html_nodes("a") %>%
   html_attr("href") %>%
   unique()
 
-links <- links[-c(1:45)]
+links_list <- links_list[-c(1:45)]
+links  <- list()
+for (i in links_list) {
+  links[[i]] <- paste("https://archive.ics.uci.edu/ml/",i,sep = "")
+}
+links <- unlist(links)
 url_list <- data.frame(name, links)
 
 large_table <- url %>%
