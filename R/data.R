@@ -9,7 +9,8 @@
 #' \item{attribute_types}{The attribute types of the dataset. Can include Categorical, Integer, and Real.}
 #' \item{num_instances}{The number of instances (observations) in the dataset.}
 #' \item{num_attributes}{The number of attributes (variables) in the dataset.}
-#' \item{year}{The year the dataset is from.}}
+#' \item{year}{The year the dataset is from.}
+#' \item{area}{The field of study of the dataset. Can include Life Sciences, Physical Sciences, CS/Engineering, Social Sciences, Business, Game, and Other}}
 #' @examples
 #' \dontrun{
 #' UCI_datasets %>%
