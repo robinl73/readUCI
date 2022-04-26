@@ -22,6 +22,8 @@
 #'   count()
 #' }
 "UCI_datasets"
+
+
 #' Adult Data Set
 #' @docType data
 #' @source https://archive.ics.uci.edu/ml/machine-learning-databases/adult/
@@ -42,17 +44,9 @@
 #' \item{hours_per_week}{The individual's hours worked per week.}
 #' \item{native_country}{The individual's native country.}
 #' \item{salary}{The individual's salary, either <=50K or >50K.}}
-#' @examples
-#' \dontrun{
-#' adult %>%
-#'   filter(salary = "<=50K")
-#' }
-#' \dontrun{
-#' adult %>%
-#'   group_by(marital_status) %>%
-#'   count()
-#' }
 "adult"
+
+
 #' Wine Data Set
 #' @docType data
 #' @source https://archive.ics.uci.edu/ml/datasets/Wine
@@ -72,24 +66,12 @@
 #' \item{hue}{Hue.}
 #' \item{OD280_OD315_diluted}{OD280_OD315_diluted.}
 #' \item{proline}{Proline.}}
-#' @examples
-#' \dontrun{
-#' wine %>%
-#'   arrange(total_phenols)
-#' }
-#' \dontrun{
-#' adult %>%
-#'   group_by(class) %>%
-#'   count()
-#' }
 "wine"
-###### WARNING MESSAGE: unexpected section header '\description' , found in man/las_vegas.Rd
+
+
 #' Las Vegas Data Set
-########
 #' @docType data
-####### WARNING MESSAGE: unexpected section header '\source' , found in man/las_vegas.Rd
 #' @source https://archive.ics.uci.edu/ml/datasets/Las+Vegas+Strip
-########
 #' @format
 #' \describe{
 #' \item{user_country}{User country.}
@@ -112,28 +94,12 @@
 #' \item{member_years}{User number of years on site.}
 #' \item{review_month}{Review month.}
 #' \item{review_weekday}{Review day of week.}
-####### WARNING MESSAGE: unexpected section header '\examples' , found in man/las_vegas.Rd
-#' @examples
-#' \dontrun{
-#' las_vegas %>%
-#'   filter(score == 5)
-#' }
-#' \dontrun{
-#' adult %>%
-#'   group_by(hotel_stars) %>%
-#'   count()
-#' }
-######
-###### WARNING MESSAGE: unexpected section header '\usage' , found in man/las_vegas.Rd
 "las_vegas"
-######
-####### WARNING MESSAGE: unexpected section header '\description' , found in man/tictactoe.Rd
+
+
 #' Tic-Tac-Toe Data Set
-######
 #' @docType data
-##### WARNING MESSAGE: unexpected section header '\source' , found in man/tictactoe.Rd
 #' @source http://archive.ics.uci.edu/ml/datasets/Tic-Tac-Toe+Endgame
-######
 #' @format
 #' \describe{
 #' \item{top_left}{The mark in the top left square of the board. x, o, or b (blank).}
@@ -146,28 +112,12 @@
 #' \item{bottom_middle}{The mark in the bottom middle square of the board. x, o, or b (blank).}
 #' \item{bottom_right}{The mark in the bottom right square of the board. x, o, or b (blank).}
 #' \item{class}{The verdict of the game. Positive if x wins, negative otherwise.}
-######## WARNING MESSAGE: unexpected section header '\examples' , found in man/tictactoe.Rd
-#' @examples
-#######
-#' \dontrun{
-#' tictactoe %>%
-#'   filter(class == "positive")
-#' }
-#' \dontrun{
-#' tictactoe %>%
-#'   group_by(center) %>%
-#'   count()
-#' }
-######## WARNING MESSAGE: unexpected section header '\usage' , found in man/tictactoe.Rd
 "tictactoe"
-#######
-###### WARNING MESSAGE: unexpected section header '\description' , found in man/flags.Rd
+
+
 #' Flags Data Set
-#######
 #' @docType data
-###### WARNING MESSAGE: unexpected section header '\source' , found in man/flags.Rd
 #' @source http://archive.ics.uci.edu/ml/datasets/Flags
-######
 #' @format
 #' \describe{
 #' \item{name}{Name of country.}
@@ -200,18 +150,4 @@
 #' \item{text}{Indicator of whether the flag contains letters or writing.}
 #' \item{topleft}{Colour in the top-left corner.}
 #' \item{botright}{Colour in the bottom-right corner.}
-######## WARNING MESSAGE: unexpected section header '\examples' , found in man/flags.Rd
-#' @examples
-#' \dontrun{
-#' flags %>%
-#'   filter(bars >= 3)
-#' }
-#' \dontrun{
-#' flags %>%
-#'   group_by(mainhue) %>%
-#'   count()
-#' }
-######
-####### WARNING MESSAGE:under \usage{}
 "flags"
-######
