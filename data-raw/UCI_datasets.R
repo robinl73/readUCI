@@ -43,6 +43,25 @@ for (i in links_list) {
 links <- unlist(links)
 url_list <- data.frame(name, links)
 
+webcode <- list()
+for (i in links) {
+  link <- read_html(i)
+  data_folder <- link %>%
+    html_nodes("a") %>%
+    html_text2()
+  index <- which(data_folder == "Data Folder")
+  if (length(index) == 0 & is.integer(index)) {
+    webcode[[i]] <- NA
+  } else {
+    data_name <- link %>%
+      html_nodes("a")
+    name <- data_name[[index]] %>%
+      html_attr("href")
+    webcode[[i]] <- name
+  }
+}
+webcode_list <- do.call(rbind, Map(data.frame, links=links, webcode=webcode))
+
 large_table <- url %>%
   html_nodes(css = "table") %>%
   html_table(fill = TRUE) 
@@ -70,6 +89,9 @@ UCI_datasets <- UCI_datasets %>%
 UCI_datasets$links[258] <- url_list$links[258]
 UCI_datasets$links[289] <- url_list$links[289]
 UCI_datasets$links[493] <- url_list$links[493]
+
+UCI_datasets <- UCI_datasets %>%
+  left_join(webcode_list, by = "links")
 
 # Adding the area variable
 whole <- list("https://archive.ics.uci.edu/ml/datasets.php?format=&task=&att=&area=life&numAtt=&numIns=&type=&sort=nameUp&view=table", "https://archive.ics.uci.edu/ml/datasets.php?format=&task=&att=&area=phys&numAtt=&numIns=&type=&sort=nameUp&view=table", "https://archive.ics.uci.edu/ml/datasets.php?format=&task=&att=&area=comp&numAtt=&numIns=&type=&sort=nameUp&view=table", "https://archive.ics.uci.edu/ml/datasets.php?format=&task=&att=&area=soc&numAtt=&numIns=&type=&sort=nameUp&view=table", "https://archive.ics.uci.edu/ml/datasets.php?format=&task=&att=&area=bus&numAtt=&numIns=&type=&sort=nameUp&view=table", "https://archive.ics.uci.edu/ml/datasets.php?format=&task=&att=&area=game&numAtt=&numIns=&type=&sort=nameUp&view=table", "https://archive.ics.uci.edu/ml/datasets.php?format=&task=&att=&area=other&numAtt=&numIns=&type=&sort=nameUp&view=table")
