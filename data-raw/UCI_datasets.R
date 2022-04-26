@@ -19,18 +19,33 @@ library(tidyverse)
 
 url <- read_html("https://archive.ics.uci.edu/ml/datasets.php")
 
-links <- url %>%
+## Adding urls for each dataset
+## Create a separate dataframe that only includes dataset names and urls
+name <- url %>%
+  html_nodes("tr") %>%
+  html_nodes("a") %>%
+  html_text2() %>% 
+  unique() 
+
+name <- name[-c(1:42)]
+
+links_list <- url %>%
   html_nodes("tr") %>%
   html_nodes("a") %>%
   html_attr("href") %>%
   unique()
 
-links[-c(1:45)]
+links_list <- links_list[-c(1:45)]
+links  <- list()
+for (i in links_list) {
+  links[[i]] <- paste("https://archive.ics.uci.edu/ml/",i,sep = "")
+}
+links <- unlist(links)
+url_list <- data.frame(name, links)
 
 large_table <- url %>%
   html_nodes(css = "table") %>%
-  html_table(fill = TRUE)
-
+  html_table(fill = TRUE) 
 
 UCI_datasets <- large_table[[6]]
 UCI_datasets <- UCI_datasets[-1, -1:-2]
@@ -39,17 +54,22 @@ UCI_datasets <- UCI_datasets[-1, -1:-2]
 names(UCI_datasets) <- c("name", "data_types", "default_task", "attribute_types", "num_instances", "num_attributes", "year")
 
 UCI_datasets <- UCI_datasets %>%
+  distinct(name, .keep_all = TRUE) %>%
   filter(!is.na(name))
 
 UCI_datasets <- UCI_datasets %>%
-  mutate(
-    data_types = ifelse(data_types == "", NA, data_types),
-    default_task = ifelse(default_task == "", NA, default_task),
-    attribute_types = ifelse(attribute_types == "", NA, attribute_types),
-    num_instances = ifelse(num_instances == "", NA, num_instances),
-    num_attributes = ifelse(num_attributes == "", NA, num_attributes),
-    year = ifelse(year == "", NA, year)
-  )
+  mutate(data_types = ifelse(data_types == "", NA, data_types),
+         default_task = ifelse(default_task == "", NA, default_task),
+         attribute_types = ifelse(attribute_types == "", NA, attribute_types),
+         num_instances = ifelse(num_instances == "", NA, num_instances),
+         num_attributes = ifelse(num_attributes == "", NA, num_attributes),
+         year = ifelse(year == "", NA, year)  ) %>%
+  left_join(url_list, by = "name")
+
+# manually add urls for 3 datasets
+UCI_datasets$links[258] <- url_list$links[258]
+UCI_datasets$links[289] <- url_list$links[289]
+UCI_datasets$links[493] <- url_list$links[493]
 
 # Adding the area variable
 whole <- list("https://archive.ics.uci.edu/ml/datasets.php?format=&task=&att=&area=life&numAtt=&numIns=&type=&sort=nameUp&view=table", "https://archive.ics.uci.edu/ml/datasets.php?format=&task=&att=&area=phys&numAtt=&numIns=&type=&sort=nameUp&view=table", "https://archive.ics.uci.edu/ml/datasets.php?format=&task=&att=&area=comp&numAtt=&numIns=&type=&sort=nameUp&view=table", "https://archive.ics.uci.edu/ml/datasets.php?format=&task=&att=&area=soc&numAtt=&numIns=&type=&sort=nameUp&view=table", "https://archive.ics.uci.edu/ml/datasets.php?format=&task=&att=&area=bus&numAtt=&numIns=&type=&sort=nameUp&view=table", "https://archive.ics.uci.edu/ml/datasets.php?format=&task=&att=&area=game&numAtt=&numIns=&type=&sort=nameUp&view=table", "https://archive.ics.uci.edu/ml/datasets.php?format=&task=&att=&area=other&numAtt=&numIns=&type=&sort=nameUp&view=table")
@@ -92,7 +112,6 @@ area <- area %>%
 
 # combining area data set with UCI_datasets to create new variable called area
 
-UCI_datasets <- full_join(UCI_datasets, area, by = c("name"))
-
+UCI_datasets <- left_join(UCI_datasets, area, by = c("name")) 
 
 usethis::use_data(UCI_datasets, overwrite = TRUE)
