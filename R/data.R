@@ -23,11 +23,10 @@
 #' }
 "UCI_datasets"
 
-
 #' Adult Data Set
 #' @docType data
-#' @source https://archive.ics.uci.edu/ml/machine-learning-databases/adult/
-#' @format
+#' @source \url{https://archive.ics.uci.edu/ml/machine-learning-databases/adult/}
+#' @format A data frame with 32561 rows and 15 variables: 
 #' \describe{
 #' \item{age}{The individual's age.}
 #' \item{workclass}{The individual's type of employment. Can include Private, Federal-gov, Without-pay, etc.}
@@ -43,14 +42,18 @@
 #' \item{capital_loss}{The individual's capital loss.}
 #' \item{hours_per_week}{The individual's hours worked per week.}
 #' \item{native_country}{The individual's native country.}
-#' \item{salary}{The individual's salary, either <=50K or >50K.}}
+#' \item{salary}{The individual's salary, either <=50K or >50K.}
+#' }
 "adult"
 
-
 #' Wine Data Set
+#' 
+#' These data are the results of a chemical analysis of wines grown in the same region in Italy but derived from three different cultivars. 
+#' The analysis determined the quantities of 13 constituents found in each of the three types of wines. 
+#' 
 #' @docType data
-#' @source https://archive.ics.uci.edu/ml/datasets/Wine
-#' @format
+#' @source \url{https://archive.ics.uci.edu/ml/datasets/Wine}
+#' @format A data frame with 178 rows and 14 variables:
 #' \describe{
 #' \item{class}{Type of wine.}
 #' \item{alcohol}{Alcohol.}
@@ -61,18 +64,18 @@
 #' \item{total_phenols}{Total Phenols}
 #' \item{flavanoids}{Flavanoids.}
 #' \item{non_flavanoid_phenols}{Non-flavanoid phenols.}
-#' \item{proanthoyanins}{Proanthoyanins.}
+#' \item{proanthocyanins}{Proanthocyanins.}
 #' \item{color_intensity}{Color intensity.}
 #' \item{hue}{Hue.}
 #' \item{OD280_OD315_diluted}{OD280_OD315_diluted.}
-#' \item{proline}{Proline.}}
+#' \item{proline}{Proline.}
+#' }
 "wine"
-
 
 #' Las Vegas Data Set
 #' @docType data
-#' @source https://archive.ics.uci.edu/ml/datasets/Las+Vegas+Strip
-#' @format
+#' @source \url{https://archive.ics.uci.edu/ml/datasets/Las+Vegas+Strip}
+#' @format A data frame with 504 rows and 20 variables:
 #' \describe{
 #' \item{user_country}{User country.}
 #' \item{nr_reviews}{Number of reviews by user.}
@@ -94,13 +97,13 @@
 #' \item{member_years}{User number of years on site.}
 #' \item{review_month}{Review month.}
 #' \item{review_weekday}{Review day of week.}
+#' }
 "las_vegas"
-
 
 #' Tic-Tac-Toe Data Set
 #' @docType data
-#' @source http://archive.ics.uci.edu/ml/datasets/Tic-Tac-Toe+Endgame
-#' @format
+#' @source \url{http://archive.ics.uci.edu/ml/datasets/Tic-Tac-Toe+Endgame}
+#' @format A data frame with 958 rows and 10 variables:
 #' \describe{
 #' \item{top_left}{The mark in the top left square of the board. x, o, or b (blank).}
 #' \item{top_middle}{The mark in the top middle square of the board. x, o, or b (blank).}
@@ -112,13 +115,16 @@
 #' \item{bottom_middle}{The mark in the bottom middle square of the board. x, o, or b (blank).}
 #' \item{bottom_right}{The mark in the bottom right square of the board. x, o, or b (blank).}
 #' \item{class}{The verdict of the game. Positive if x wins, negative otherwise.}
+#' }
 "tictactoe"
 
-
 #' Flags Data Set
+#' 
+#' This data file contains details of various nations and their flags
+#' 
 #' @docType data
-#' @source http://archive.ics.uci.edu/ml/datasets/Flags
-#' @format
+#' @source \url{http://archive.ics.uci.edu/ml/datasets/Flags}
+#' @format A data frame with 194 rows and 30 variables
 #' \describe{
 #' \item{name}{Name of country.}
 #' \item{landmass}{Continent of country. 1 = North America, 2 = South America, 3 = Europe, 4 = Africa, 5 = Asia, 6 = Oceania.}
@@ -150,4 +156,6 @@
 #' \item{text}{Indicator of whether the flag contains letters or writing.}
 #' \item{topleft}{Colour in the top-left corner.}
 #' \item{botright}{Colour in the bottom-right corner.}
+#' }
 "flags"
+

@@ -5,6 +5,7 @@
 \alias{tictactoe}
 \title{Tic-Tac-Toe Data Set}
 \format{
+A data frame with 958 rows and 10 variables:
 \describe{
 \item{top_left}{The mark in the top left square of the board. x, o, or b (blank).}
 \item{top_middle}{The mark in the top middle square of the board. x, o, or b (blank).}
@@ -17,8 +18,9 @@
 \item{bottom_right}{The mark in the bottom right square of the board. x, o, or b (blank).}
 \item{class}{The verdict of the game. Positive if x wins, negative otherwise.}
 }
+}
 \source{
-http://archive.ics.uci.edu/ml/datasets/Tic-Tac-Toe+Endgame
+\url{http://archive.ics.uci.edu/ml/datasets/Tic-Tac-Toe+Endgame}
 }
 \usage{
 tictactoe

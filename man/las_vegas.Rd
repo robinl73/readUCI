@@ -5,6 +5,7 @@
 \alias{las_vegas}
 \title{Las Vegas Data Set}
 \format{
+A data frame with 504 rows and 20 variables:
 \describe{
 \item{user_country}{User country.}
 \item{nr_reviews}{Number of reviews by user.}
@@ -27,8 +28,9 @@
 \item{review_month}{Review month.}
 \item{review_weekday}{Review day of week.}
 }
+}
 \source{
-https://archive.ics.uci.edu/ml/datasets/Las+Vegas+Strip
+\url{https://archive.ics.uci.edu/ml/datasets/Las+Vegas+Strip}
 }
 \usage{
 las_vegas
