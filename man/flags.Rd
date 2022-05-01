@@ -5,6 +5,7 @@
 \alias{flags}
 \title{Flags Data Set}
 \format{
+A data frame with 194 rows and 30 variables
 \describe{
 \item{name}{Name of country.}
 \item{landmass}{Continent of country. 1 = North America, 2 = South America, 3 = Europe, 4 = Africa, 5 = Asia, 6 = Oceania.}
@@ -37,13 +38,14 @@
 \item{topleft}{Colour in the top-left corner.}
 \item{botright}{Colour in the bottom-right corner.}
 }
+}
 \source{
-http://archive.ics.uci.edu/ml/datasets/Flags
+\url{http://archive.ics.uci.edu/ml/datasets/Flags}
 }
 \usage{
 flags
 }
 \description{
-Flags Data Set
+This data file contains details of various nations and their flags
 }
 \keyword{datasets}
