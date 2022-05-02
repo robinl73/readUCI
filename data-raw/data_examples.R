@@ -1,4 +1,4 @@
-# imports 5 data sets
+# imports 6 data sets
 
 adult <- read_UCI("adult", "adult.data", trim_ws = TRUE)
 colnames(adult) <- c(
@@ -107,3 +107,12 @@ flags$icon <- as.factor(flags$icon)
 flags$animate <- as.factor(flags$animate)
 flags$text <- as.factor(flags$text)
 usethis::use_data(flags, overwrite = TRUE)
+
+car <- read_UCI("car", "car.data")
+colnames(car) <- c("buying", "maint", "doors", "persons", "lug_boot", "safety", "class_values")
+car <- preview_names(car)
+usethis::use_data(car, overwrite = TRUE)
+
+breast_cancer <- read_UCI("breast-cancer", "breast-cancer.data")
+colnames(breast_cancer) <- c("class", "age", "menopause", "tumor_size", "inv_nodes", "node_caps", "deg_malig", "breast", "breast_quad", "irradiat")
+usethis::use_data(breast_cancer, overwrite = TRUE)
