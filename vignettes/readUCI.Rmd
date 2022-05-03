@@ -2,7 +2,7 @@
 title: "readUCI"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{read_UCI}
+  %\VignetteIndexEntry{readUCI}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
