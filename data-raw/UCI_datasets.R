@@ -1,18 +1,18 @@
-## code to prepare `uci_datasets` dataset goes here
+## code to prepare `UCI_datasets` dataset goes here
 
 # #read in the data from the data-raw folder
-# uci_datasets <- readr::read_csv("data-raw/UCI_datasets.csv", na = "")
+# UCI_datasets <- readr::read_csv("data-raw/UCI_datasets.csv", na = "")
 #
 # #clean up the names
-# names(uci_datasets) <- c("name", "data_types", "default_task", "attribute_types", "num_instances", "num_attributes", "year")
+# names(UCI_datasets) <- c("name", "data_types", "default_task", "attribute_types", "num_instances", "num_attributes", "year")
 #
 # #remove the whitespace
-# uci_datasets <- purrr::map_df(uci_datasets, stringr::str_trim)
+# UCI_datasets <- purrr::map_df(UCI_datasets, stringr::str_trim)
 #
 # #convert to numeric
-# uci_datasets$num_attributes <- as.numeric(uci_datasets$num_attributes)
-# uci_datasets$num_instances <- as.numeric(uci_datasets$num_instances)
-# uci_datasets$year <- as.numeric(uci_datasets$year)
+# UCI_datasets$num_attributes <- as.numeric(UCI_datasets$num_attributes)
+# UCI_datasets$num_instances <- as.numeric(UCI_datasets$num_instances)
+# UCI_datasets$year <- as.numeric(UCI_datasets$year)
 
 library(rvest)
 library(tidyverse)
@@ -66,17 +66,17 @@ large_table <- url %>%
   html_nodes(css = "table") %>%
   html_table(fill = TRUE) 
 
-uci_datasets <- large_table[[6]]
-uci_datasets <- uci_datasets[-1, -1:-2]
+UCI_datasets <- large_table[[6]]
+UCI_datasets <- UCI_datasets[-1, -1:-2]
 
 
-names(uci_datasets) <- c("name", "data_types", "default_task", "attribute_types", "num_instances", "num_attributes", "year")
+names(UCI_datasets) <- c("name", "data_types", "default_task", "attribute_types", "num_instances", "num_attributes", "year")
 
-uci_datasets <- uci_datasets %>%
+UCI_datasets <- UCI_datasets %>%
   distinct(name, .keep_all = TRUE) %>%
   filter(!is.na(name))
 
-uci_datasets <- uci_datasets %>%
+UCI_datasets <- UCI_datasets %>%
   mutate(data_types = ifelse(data_types == "", NA, data_types),
          default_task = ifelse(default_task == "", NA, default_task),
          attribute_types = ifelse(attribute_types == "", NA, attribute_types),
@@ -86,11 +86,11 @@ uci_datasets <- uci_datasets %>%
   left_join(url_list, by = "name")
 
 # manually add urls for 3 datasets
-uci_datasets$links[258] <- url_list$links[258]
-uci_datasets$links[289] <- url_list$links[289]
-uci_datasets$links[493] <- url_list$links[493]
+UCI_datasets$links[258] <- url_list$links[258]
+UCI_datasets$links[289] <- url_list$links[289]
+UCI_datasets$links[493] <- url_list$links[493]
 
-uci_datasets <- uci_datasets %>%
+UCI_datasets <- UCI_datasets %>%
   left_join(webcode_list, by = "links")
 
 # Adding the area variable
@@ -132,9 +132,9 @@ area <- bind_rows(life_sciences, physical_sciences, cs, social_sciences, busines
 area <- area %>%
   distinct(name, .keep_all = TRUE)
 
-# combining area data set with uci_datasets to create new variable called area
+# combining area data set with UCI_datasets to create new variable called area
 
-uci_datasets <- left_join(uci_datasets, area, by = c("name")) 
+UCI_datasets <- left_join(UCI_datasets, area, by = c("name")) 
 
-usethis::use_data(uci_datasets, overwrite = TRUE)
+usethis::use_data(UCI_datasets, overwrite = TRUE)
 
