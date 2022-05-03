@@ -116,3 +116,8 @@ usethis::use_data(car, overwrite = TRUE)
 breast_cancer <- read_UCI("breast-cancer", "breast-cancer.data")
 colnames(breast_cancer) <- c("class", "age", "menopause", "tumor_size", "inv_nodes", "node_caps", "deg_malig", "breast", "breast_quad", "irradiat")
 usethis::use_data(breast_cancer, overwrite = TRUE)
+
+glass <- read_UCI("glass", "glass.data")
+colnames(glass) <- c("ID", "RI", "Na", "Mg", "Al", "Si", "K", "Ca", "Ba", "Fe", "glass_type")
+glass$glass_type <- as.factor(glass$glass_type)
+usethis::use_data(glass, overwrite = TRUE)

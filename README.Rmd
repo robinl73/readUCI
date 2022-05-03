@@ -19,6 +19,9 @@ knitr::opts_chunk$set(
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![CRAN status](https://www.r-pkg.org/badges/version/readUCI)](https://CRAN.R-project.org/package=readUCI)
 [![Travis build status](https://travis-ci.org/emmal73/readUCI.svg?branch=master)](https://travis-ci.org/emmal73/readUCI)
+```{r}
+usethis::use_github_actions_badge(name = "R-CMD-check", repo_spec = NULL)
+```
 <!-- badges: end -->
 
 `readUCI` facilitates the process of importing data from the [University of California Irvine Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets.php). These datasets are especially good for machine learning practice, and can be used to create reproducible code examples. As of December, 2019, there are 488 available datasets.

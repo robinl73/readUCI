@@ -193,3 +193,26 @@
 #' \item{irradiat}{Irradiation, the use of radiation therapy}
 #' }
 "breast_cancer"
+
+#' Glass Identification Data set
+#' 
+#' From USA Forensic Science Service; 6 types of glass; defined in terms of their oxide content (i.e. Na, Fe, K, etc)
+#' 
+#' @docType data
+#' @source \url{http://archive.ics.uci.edu/ml/datasets/Glass+Identification}
+#' @format A dataframe with 214 instances and 11 variables:
+#' \describe{
+#' \item{ID}{ID number: 1 to 214} 
+#' \item{RI}{The refractive index.} 
+#' \item{Na}{Sodium (unit measurement: weight percent in corresponding oxide).}
+#' \item{Mg}{Magnesium (unit measurement: weight percent in corresponding oxide).}
+#' \item{Al}{Aluminum (unit measurement: weight percent in corresponding oxide).}
+#' \item{Si}{Silicon (unit measurement: weight percent in corresponding oxide).}
+#' \item{K}{Potassium (unit measurement: weight percent in corresponding oxide).}
+#' \item{Ca}{Calcium (unit measurement: weight percent in corresponding oxide).}
+#' \item{Ba}{Barium (unit measurement: weight percent in corresponding oxide).}
+#' \item{Fe}{Iron (unit measurement: weight percent in corresponding oxide).}
+#' \item{glass_type}{Type of class: 1 = building_windows_float_processed, 2 = building_windows_non_float_processed, 3 = vehicle_windows_float_processed, 4 = vehicle_windows_non_float_processed, 5 = containers, 6 = tableware, 7 = headlamps.}
+#' }
+"glass"
+
