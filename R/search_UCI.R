@@ -1,4 +1,3 @@
-#' @export
 #' @param data_type A string that corresponds with the the name of the dataset as
 #'   it appears in the [Parent
 #'   Directory](https://archive.ics.uci.edu/ml/machine-learning-databases/).
@@ -26,8 +25,9 @@
 #'
 #' # Read in Breast Tissue dataset
 #' breast_tissue <- read_UCI("00192", "BreastTissue.xls", sheet = 2, data_overwrite = TRUE)
+#' @export
 
-globalVariables(c("UCI_datasets","name", "data_types", "default_task", "num_instances", "area"))
+globalVariables(c("UCI_datasets", "name","data_types", "default_task", "num_instances", "area"))
 
 search_UCI <- function(data_type = NULL, data_task = NULL, data_area = NULL, min_instances = 0) {
   types <- unique(unlist(strsplit(UCI_datasets$data_types, ", ")))
@@ -76,3 +76,5 @@ search_UCI <- function(data_type = NULL, data_task = NULL, data_area = NULL, min
   }
   return(data)
 }
+
+
