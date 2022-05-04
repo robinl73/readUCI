@@ -121,3 +121,8 @@ glass <- read_UCI("glass", "glass.data")
 colnames(glass) <- c("ID", "RI", "Na", "Mg", "Al", "Si", "K", "Ca", "Ba", "Fe", "glass_type")
 glass$glass_type <- as.factor(glass$glass_type)
 usethis::use_data(glass, overwrite = TRUE)
+
+liver <- read_UCI("liver-disorders", "bupa.data")
+colnames(liver) <- c("mcv", "alkphos", "sgpt", "sgot", "gammagt", "drinks", "selector")
+liver$selector <- as.factor(liver$selector)
+usethis::use_data(liver, overwrite = TRUE)

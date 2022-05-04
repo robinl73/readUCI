@@ -3,7 +3,7 @@
 \docType{data}
 \name{glass}
 \alias{glass}
-\title{Glass Identification Data set}
+\title{Glass Identification Data Set}
 \format{
 A dataframe with 214 instances and 11 variables:
 \describe{

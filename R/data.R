@@ -194,7 +194,7 @@
 #' }
 "breast_cancer"
 
-#' Glass Identification Data set
+#' Glass Identification Data Set
 #' 
 #' From USA Forensic Science Service; 6 types of glass; defined in terms of their oxide content (i.e. Na, Fe, K, etc)
 #' 
@@ -216,3 +216,17 @@
 #' }
 "glass"
 
+#' Liver Disorders Data Set
+#' @docType data
+#' @source \url{http://archive.ics.uci.edu/ml/datasets/Liver+Disorders}
+#' @format A dataframe with 214 instances and 11 variables:
+#' \describe{
+#' \item{mcv}{Mean corpuscular volume.} 
+#' \item{alkphos}{Alkphos alkaline phosphotase.} 
+#' \item{sgpt}{Sgpt alanine aminotransferase.}
+#' \item{sgot}{Sgot aspartate aminotransferase.}
+#' \item{gammagt}{Gamma-glutamyl transpeptidase.}
+#' \item{drinks}{Number of half-pint equivalents of alcoholic beverages drunk per day.}
+#' \item{selector}{Field created by the BUPA researchers to split the data into train/test sets.}
+#' }
+"liver"
