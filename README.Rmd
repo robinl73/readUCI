@@ -24,9 +24,17 @@ usethis::use_github_actions_badge(name = "R-CMD-check", repo_spec = NULL)
 ```
 <!-- badges: end -->
 
-`readUCI` facilitates the process of importing data from the [University of California Irvine Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets.php). These datasets are especially good for machine learning practice, and can be used to create reproducible code examples. As of December, 2019, there are 488 available datasets.
 
-The dataset `UCI_datasets` has all of the available datasets from the repository and some characteristics, including data types and common tasks to perform with that data.
+
+The [University of California Irvine Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets.php) contains 602 data sets as of 2022. These datasets are especially good for machine learning practice, and can be used to create reproducible code examples. As of December, 2019, there are 488 available datasets.
+
+![Logo](inst/repo_logo.png)
+
+
+The challenge with using the repository is that understanding how to get the data into R isn't always intuitive and is inaccessible for beginners. `readUCI` helps make this process easier. `read_UCI` facilitates the process of importing data from the University of California Irvine Machine Learning Repository.
+
+
+## Installation
 
 You can install the package through GitHub:
 
@@ -37,8 +45,35 @@ library(readUCI)
 ```
 
 
-## Common Use: `read_UCI`
+## Data sets
 
+### `UCI_datasets`
+
+The data set `UCI_datasets` has all of the available data sets from the repository and some characteristics, including data types and common tasks to perform with that data. 
+
+```{r}
+head(UCI_datasets)
+```
+
+### Included Datasets
+
+For your convenience, 9 datasets from the UCI database have been imported and cleaned with the package. These are:
+
+* `adult`: used to predict whether income is greater than $50K from census data
+* `flags`: contains details of countries and their flags
+* `las_vegas`: contains features of online reviews of 21 hotels in Las Vegas
+* `tictactoe`: used for binary classification, based on possible tic-tac-toe configurations
+* `wine`: used to determine origin of wines based on chemical analysis
+* `breast_cancer`: used to predict presence of breast cancer from real patient data obtained from the Institute of Oncology, Ljubljanadetermine
+* `car`: useful for testing constructive induction and structure discovery method on car evaluation
+* `glass`: useful for identifying glass content, from the USA forensic science service
+* `liver`: useful to identify liver disorders
+
+## Functionality
+
+### Common Use: `read_UCI`
+
+`read_UCI` is used to import data from the UCI machine learning repository into R. 
 
 ![Abalone](inst/abalone_annotated.jpg)
 
@@ -96,14 +131,3 @@ iris_datasets$test_output
 iris_datasets$train_input
 iris_datasets$train_output
 ```
-
-
-## Included Datasets
-
-For your convenience, 5 datasets from the UCI database are imported and cleaned with the package. These are:
-
-* `adult`: used to predict whether income is greater than $50K from census data
-* `flags`: contains details of countries and their flags
-* `las_vegas`: contains features of online reviews of 21 hotels in Las Vegas
-* `tictactoe`: used for binary classification, based on possible tic-tac-toe configurations
-* `wine`: used to determine origin of wines based on chemical analysis
