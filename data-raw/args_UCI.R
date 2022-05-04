@@ -1,3 +1,6 @@
+library(rvest)
+library(tidyverse)
+
 url2 <- read_html("https://archive.ics.uci.edu/ml/datasets.php")
 
 ## Create a dataframe containing only one column of dataset names
