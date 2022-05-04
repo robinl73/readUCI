@@ -23,6 +23,19 @@
 #' }
 "UCI_datasets"
 
+#' Arguments Data Set 
+#' 
+#' This data set provides the user with the arguments needed to import data from the UCI repository using the read_UCI function. 
+#' 
+#' @docType data
+#' @format 
+#' \describe{
+#' \item{name}{The name of the dataset.}
+#' \item{links}{The link to the dataset provides data arguement for the function. Data argument is located below the index header inside the "Data Folder".}
+#' \item{webpage}{The webpage needed for the webpage argument in read_UCI function. Webpage is ../machine-learning-databases/"webpage"/.}
+#' }
+"args_UCI"
+
 #' Adult Data Set
 #' @docType data
 #' @source \url{https://archive.ics.uci.edu/ml/machine-learning-databases/adult/}
@@ -48,7 +61,7 @@
 
 #' Wine Data Set
 #' 
-#' These data are the results of a chemical analysis of wines grown in the same region in Italy but derived from three different cultivars. 
+#' This data is the result of a chemical analysis of wines grown in the same region in Italy but derived from three different cultivars. 
 #' The analysis determined the quantities of 13 constituents found in each of the three types of wines. 
 #' 
 #' @docType data
