@@ -77,7 +77,7 @@ head(abalone)
 `search_UCI` allows the user to filter `UCI_datasets` by data type, machine learning task, field of study, and minimum instances. This helps search through `UCI_datasets` and limit the data entries to show datasets that relevant to the user.
 
 ```{r}
-
+search_UCI("Multivariate", "Classification", "Life Sciences", 500)
 ```
 
 ## Additional Functionality
@@ -99,3 +99,7 @@ For your convenience, 9 datasets from the UCI database have been imported and cl
 * `glass`: useful for identifying glass content, from the USA forensic science service
 * `liver`: useful to identify liver disorders
 
+## See Also
+* [University of California Irvine Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets.php)
+* [Previous readUCI work](https://github.com/emmal73/readUCI)
+* [Vignettes: more readUCI examples](file:///private/var/folders/3m/ltp_cncd56lb5bg4vnj1tdb00000gn/T/RtmpgdV04P/preview-b1413ae7a2f.dir/readUCI.html)
