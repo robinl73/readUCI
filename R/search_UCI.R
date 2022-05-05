@@ -1,3 +1,5 @@
+globalVariables(c("UCI_datasets", "name","data_types", "default_task", "num_instances", "area"))
+
 #' @param data_type A string that corresponds with the the name of the dataset as
 #'   it appears in the [Parent
 #'   Directory](https://archive.ics.uci.edu/ml/machine-learning-databases/).
@@ -14,20 +16,12 @@
 #'   character vector of column names for the data file.
 #' @title Read files from the UCI Machine Learning Repository
 #' @examples
-#' # Read in the Las Vegas Trip Advisor Reviews dataset
-#' data_list <- search_UCI("Time-Series", "Classification", "Life Sciences", 300)
-#'
-#' # Read in Iris dataset
-#' iris_uci <- read_UCI("iris", "iris.data")
-#'
-#' # Read in Immunotherapy dataset
-#' immunotherapy <- read_UCI("00428", "Immunotherapy.xlsx")
-#'
-#' # Read in Breast Tissue dataset
-#' breast_tissue <- read_UCI("00192", "BreastTissue.xls", sheet = 2, data_overwrite = TRUE)
+#' dataset_pref1 <- search_UCI("Time-Series", "Classification", "Life Sciences", 300)
+#' dataset_pref2 <- search_UCI(data_type = "Text", data_area = "Business")
+#' 
+#' @import dplyr
+#' @importFrom rlang is_null
 #' @export
-
-globalVariables(c("UCI_datasets", "name","data_types", "default_task", "num_instances", "area"))
 
 search_UCI <- function(data_type = NULL, data_task = NULL, data_area = NULL, min_instances = 0) {
   types <- unique(unlist(strsplit(UCI_datasets$data_types, ", ")))

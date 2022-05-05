@@ -25,12 +25,14 @@
 #'
 #' # Read in Iris dataset
 #' iris_uci <- read_UCI("iris", "iris.data")
-#'
+#' \dontrun{
 #' # Read in Immunotherapy dataset
 #' immunotherapy <- read_UCI("00428", "Immunotherapy.xlsx")
-#'
-#' # Read in Breast Tissue dataset
+#' }
+#' \dontrun{
+#' # Read in Immunotherapy dataset
 #' breast_tissue <- read_UCI("00192", "BreastTissue.xls", sheet = 2, data_overwrite = TRUE)
+#' }
 read_UCI <- function(webpage,
                      data,
                      data_delim = ",",
