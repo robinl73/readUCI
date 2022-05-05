@@ -22,3 +22,7 @@ test_that("test_train_split works", {
   expect_equal(ncol(test_train_split(read_UCI("iris", "iris.data"), 20, "X5")$test_output), 1)
   expect_error(test_train_split(read_UCI("iris", "iris.data"), 20, X5), "object 'X5' not found")
 })
+
+test_that("search_UCI works", {
+  expect_type(search_UCI("Multivariate", "Classification", "Life Sciences", 500), "list")
+})
