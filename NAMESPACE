@@ -2,3 +2,7 @@
 
 export(preview_names)
 export(read_UCI)
+export(search_UCI)
+export(test_train_split)
+import(dplyr)
+importFrom(rlang,is_null)

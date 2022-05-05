@@ -4,23 +4,38 @@
 \name{las_vegas}
 \alias{las_vegas}
 \title{Las Vegas Data Set}
-\format{An object of class \code{spec_tbl_df} (inherits from \code{tbl_df}, \code{tbl}, \code{data.frame}) with 504 rows and 20 columns.}
+\format{
+A data frame with 504 rows and 20 variables:
+\describe{
+\item{user_country}{User country.}
+\item{nr_reviews}{Number of reviews by user.}
+\item{nr_hotel_reviews}{Number of hotel reviews by user.}
+\item{helpful_votes}{Number of helpful votes for review.}
+\item{score}{Review score.}
+\item{period_of_stay}{Period of stay associated with the review.}
+\item{traveler_type}{User traveler type.}
+\item{pool}{Indicator of whether hotel has a pool.}
+\item{gym}{Indicator of whether hotel has a gym.}
+\item{tennis_court}{Indicator of whether hotel has a tennis court.}
+\item{spa}{Indicator of whether hotel has a spa.}
+\item{casino}{Indicator of whether hotel has a casino.}
+\item{free_internet}{Indicator of whether a hotel has free internet.}
+\item{hotel_name}{Hotel name.}
+\item{hotel_stars}{Hotel stars.}
+\item{nr_rooms}{Hotel number of rooms.}
+\item{user_continent}{User continent.}
+\item{member_years}{User number of years on site.}
+\item{review_month}{Review month.}
+\item{review_weekday}{Review day of week.}
+}
+}
 \source{
-https://archive.ics.uci.edu/ml/datasets/Las+Vegas+Strip
+\url{https://archive.ics.uci.edu/ml/datasets/Las+Vegas+Strip}
 }
 \usage{
 las_vegas
 }
 \description{
 Las Vegas Data Set
-}
-\examples{
-\dontrun{
-las_vegas \%>\%
-filter(score == 5)}
-\dontrun{
-adult \%>\%
-group_by(hotel_stars) \%>\%
-count()}
 }
 \keyword{datasets}

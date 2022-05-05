@@ -4,14 +4,17 @@
 \name{UCI_datasets}
 \alias{UCI_datasets}
 \title{UCI Machine Learning Repository Available Datasets}
-\format{\describe{
+\format{
+\describe{
 \item{name}{The name of the dataset.}
 \item{data_types}{The types of data in the dataset. Can include Multivariate, Univariate, Sequential, Time-Series, Text, Domain-Theory, etc.}
 \item{default_task}{The default task of the dataset. Can include Classification, Regression, Clustering, etc.}
 \item{attribute_types}{The attribute types of the dataset. Can include Categorical, Integer, and Real.}
 \item{num_instances}{The number of instances (observations) in the dataset.}
 \item{num_attributes}{The number of attributes (variables) in the dataset.}
-\item{year}{The year the dataset is from.}}}
+\item{year}{The year the dataset is from.}
+\item{area}{The field of study of the dataset. Can include Life Sciences, Physical Sciences, CS/Engineering, Social Sciences, Business, Game, and Other}}
+}
 \source{
 (https://archive.ics.uci.edu/ml/datasets.php)
 }
@@ -24,10 +27,12 @@ UCI Machine Learning Repository Available Datasets
 \examples{
 \dontrun{
 UCI_datasets \%>\%
-filter(Categorical \%in\% attribute_types)}
+  filter(Categorical \%in\% attribute_types)
+}
 \dontrun{
 UCI_datasets \%>\%
-group_by(data_types) \%>\%
-count()}
+  group_by(data_types) \%>\%
+  count()
+}
 }
 \keyword{datasets}

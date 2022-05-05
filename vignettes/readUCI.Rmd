@@ -2,7 +2,7 @@
 title: "readUCI"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{read_UCI}
+  %\VignetteIndexEntry{readUCI}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
@@ -26,11 +26,11 @@ The University of California Irvine Machine Learning Repository is a resource th
 
 The workhorse function of the package is `read_UCI()`. It builds off of the functionality of `readr::read_delim()` and `readxl::read_excel()` by pasting together a URL from the `webpage` and the `data_file`. 
 
-To know what to enter as arguments, look at the "Data Folder" on the page of the dataset you are interested in. 
+To know what to enter as arguments, refer to the `args_UCI` dataset. In the link look at the "Data Folder" on the page of the dataset you are interested in. 
 
-* The `webpage` is the text (in quotes) that comes directly after "Index of /ml/machine-learning-databases/". It is also part of the URL for that page. 
+* The `data_file` is the name of the dataset (also in quotes) you would like to import, also on that page of the "Data Folder" below the index. 
 
-* The `data_file` is the name of the dataset (also in quotes) you would like to import, also on that page of the "Data Folder". 
+* The `webpage`is found in ../machine-learning-databases/"webpage"/.
 
 The other arguments will change based on the structure and format of the data you are importing.
 
@@ -45,17 +45,21 @@ The tricky thing is that it can be hard to know what information you need to giv
 ### Delimiters 
 
 ```{r}
-las_vegas <- read_UCI(webpage = "00397",
-                      data = "LasVegasTripAdvisorReviews-Dataset.csv")
+las_vegas <- read_UCI(
+  webpage = "00397",
+  data = "LasVegasTripAdvisorReviews-Dataset.csv"
+)
 head(las_vegas)
 ```
 
 If no delimiter is specified, `read_UCI()` defaults to a comma. However, in some cases this is not the delimiter used in the file. Here, `las_vegas` only has 1 column because `read_UCI()` was looking for commas, while the Las Vegas Strip dataset actually uses semicolons as a delimiter. 
 
 ```{r}
-las_vegas2 <- read_UCI(webpage = "00397",
-                       data = "LasVegasTripAdvisorReviews-Dataset.csv",
-                       data_delim = ";")
+las_vegas2 <- read_UCI(
+  webpage = "00397",
+  data = "LasVegasTripAdvisorReviews-Dataset.csv",
+  data_delim = ";"
+)
 
 head(las_vegas2)
 ```
@@ -63,11 +67,12 @@ head(las_vegas2)
 You can see that now we have 20 variables because `read_UCI()` is using the proper delimiter. We can also see that the first row is the actual column names, so we will change the `data_col_names` argument to be `TRUE`, meaning the first row will be used as column names instead of as data.
 
 ```{r}
-las_vegas3 <- read_UCI(webpage = "00397",
-                      data = "LasVegasTripAdvisorReviews-Dataset.csv",
-                      data_delim = ";",
-                      data_col_names = TRUE
-                      )
+las_vegas3 <- read_UCI(
+  webpage = "00397",
+  data = "LasVegasTripAdvisorReviews-Dataset.csv",
+  data_delim = ";",
+  data_col_names = TRUE
+)
 
 head(las_vegas3)
 ```
@@ -79,9 +84,11 @@ Because of the way that `readxl::read_excel()` works, if ".xls" is detected as p
 ### Sheets 
 
 ```{r}
-breast_tissue <- read_UCI(webpage = "00192",
-                          data = "BreastTissue.xls",
-                          data_overwrite = TRUE) 
+breast_tissue <- read_UCI(
+  webpage = "00192",
+  data = "BreastTissue.xls",
+  data_overwrite = TRUE
+)
 head(breast_tissue)
 ```
 
@@ -90,10 +97,12 @@ Clearly from what gets read in here is not actually the data. If you were to dow
 If you are working with an Excel file and you get something that doesn't look like data, try a different sheet. 
 
 ```{r}
-breast_tissue <- read_UCI(webpage = "00192",
-                          data = "BreastTissue.xls",
-                          data_overwrite = TRUE,
-                          sheet = 2) 
+breast_tissue <- read_UCI(
+  webpage = "00192",
+  data = "BreastTissue.xls",
+  data_overwrite = TRUE,
+  sheet = 2
+)
 head(breast_tissue)
 ```
 
@@ -111,6 +120,24 @@ The above displays the column names in snake case, and `breast_tissue` now uses 
 
 If you would like to not replace the column names but still assign the output, you can add `overwrite = FALSE` as an additional argument.
 
-# `UCI_datasets`
+# `test_train_split`
 
-`UCI_datasets` is a table with all of the currently available datasets and a selection of their features. It is a resource to help you find data you are interested in. 
+The function `test_train_split` allows useres to split a dataset of their choice by test and train datasets. When performing classification methods, instead of splitting test and training data and separating variables into input and output data for class manually, we can use the `test_train_split` function.
+
+```{r}
+iris_uci <- read_UCI("iris", "iris.data")
+
+iris_datasets <- test_train_split(iris_uci, 20, "X5")
+iris_datasets$test_set
+iris_datasets$train_set
+```
+
+The `test_train_split` function also creates test and training data input and outcome variables. Where the input variable represents 'X', and the outcome variable represents the response variable of interest 'Y.'
+
+```{r}
+iris_datasets$test_input
+iris_datasets$test_output
+iris_datasets$train_input
+iris_datasets$train_output
+```
+ 

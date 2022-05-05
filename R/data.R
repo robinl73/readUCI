@@ -9,20 +9,37 @@
 #' \item{attribute_types}{The attribute types of the dataset. Can include Categorical, Integer, and Real.}
 #' \item{num_instances}{The number of instances (observations) in the dataset.}
 #' \item{num_attributes}{The number of attributes (variables) in the dataset.}
-#' \item{year}{The year the dataset is from.}}
+#' \item{year}{The year the dataset is from.}
+#' \item{area}{The field of study of the dataset. Can include Life Sciences, Physical Sciences, CS/Engineering, Social Sciences, Business, Game, and Other}}
 #' @examples
 #' \dontrun{
 #' UCI_datasets %>%
-#' filter(Categorical %in% attribute_types)}
+#'   filter(Categorical %in% attribute_types)
+#' }
 #' \dontrun{
 #' UCI_datasets %>%
-#' group_by(data_types) %>%
-#' count()}
+#'   group_by(data_types) %>%
+#'   count()
+#' }
 "UCI_datasets"
+
+#' Arguments Data Set
+#'
+#' This data set provides the user with the arguments needed to import data from the UCI repository using the read_UCI function.
+#'
+#' @docType data
+#' @format
+#' \describe{
+#' \item{name}{The name of the dataset.}
+#' \item{links}{The link to the dataset provides data arguement for the function. Data argument is located below the index header inside the "Data Folder".}
+#' \item{webpage}{The webpage needed for the webpage argument in read_UCI function. Webpage is ../machine-learning-databases/"webpage"/.}
+#' }
+"args_UCI"
+
 #' Adult Data Set
-#' @doctType data
-#' @source https://archive.ics.uci.edu/ml/machine-learning-databases/adult/
-#' @format 
+#' @docType data
+#' @source \url{https://archive.ics.uci.edu/ml/machine-learning-databases/adult/}
+#' @format A data frame with 32561 rows and 15 variables:
 #' \describe{
 #' \item{age}{The individual's age.}
 #' \item{workclass}{The individual's type of employment. Can include Private, Federal-gov, Without-pay, etc.}
@@ -38,20 +55,18 @@
 #' \item{capital_loss}{The individual's capital loss.}
 #' \item{hours_per_week}{The individual's hours worked per week.}
 #' \item{native_country}{The individual's native country.}
-#' \item{salary}{The individual's salary, either <=50K or >50K.}}
-#' @examples
-#' \dontrun{
-#' adult %>%
-#' filter(salary = "<=50K")}
-#' \dontrun{
-#' adult %>%
-#' group_by(marital_status) %>%
-#' count()}
+#' \item{salary}{The individual's salary, either <=50K or >50K.}
+#' }
 "adult"
+
 #' Wine Data Set
-#' @doctType data
-#' @source https://archive.ics.uci.edu/ml/datasets/Wine
-#' @format 
+#'
+#' This data is the result of a chemical analysis of wines grown in the same region in Italy but derived from three different cultivars.
+#' The analysis determined the quantities of 13 constituents found in each of the three types of wines.
+#'
+#' @docType data
+#' @source \url{https://archive.ics.uci.edu/ml/datasets/Wine}
+#' @format A data frame with 178 rows and 14 variables:
 #' \describe{
 #' \item{class}{Type of wine.}
 #' \item{alcohol}{Alcohol.}
@@ -62,24 +77,18 @@
 #' \item{total_phenols}{Total Phenols}
 #' \item{flavanoids}{Flavanoids.}
 #' \item{non_flavanoid_phenols}{Non-flavanoid phenols.}
-#' \item{proanthoyanins}{Proanthoyanins.}
+#' \item{proanthocyanins}{Proanthocyanins.}
 #' \item{color_intensity}{Color intensity.}
 #' \item{hue}{Hue.}
 #' \item{OD280_OD315_diluted}{OD280_OD315_diluted.}
-#' \item{proline}{Proline.}}
-#' @examples
-#' \dontrun{
-#' wine %>%
-#' arrange(total_phenols)}
-#' \dontrun{
-#' adult %>%
-#' group_by(class) %>%
-#' count()}
+#' \item{proline}{Proline.}
+#' }
 "wine"
+
 #' Las Vegas Data Set
-#' @doctType data
-#' @source https://archive.ics.uci.edu/ml/datasets/Las+Vegas+Strip
-#' @format 
+#' @docType data
+#' @source \url{https://archive.ics.uci.edu/ml/datasets/Las+Vegas+Strip}
+#' @format A data frame with 504 rows and 20 variables:
 #' \describe{
 #' \item{user_country}{User country.}
 #' \item{nr_reviews}{Number of reviews by user.}
@@ -101,19 +110,13 @@
 #' \item{member_years}{User number of years on site.}
 #' \item{review_month}{Review month.}
 #' \item{review_weekday}{Review day of week.}
-#' @examples
-#' \dontrun{
-#' las_vegas %>%
-#' filter(score == 5)}
-#' \dontrun{
-#' adult %>%
-#' group_by(hotel_stars) %>%
-#' count()}
+#' }
 "las_vegas"
+
 #' Tic-Tac-Toe Data Set
-#' @doctType data
-#' @source http://archive.ics.uci.edu/ml/datasets/Tic-Tac-Toe+Endgame
-#' @format 
+#' @docType data
+#' @source \url{http://archive.ics.uci.edu/ml/datasets/Tic-Tac-Toe+Endgame}
+#' @format A data frame with 958 rows and 10 variables:
 #' \describe{
 #' \item{top_left}{The mark in the top left square of the board. x, o, or b (blank).}
 #' \item{top_middle}{The mark in the top middle square of the board. x, o, or b (blank).}
@@ -125,19 +128,16 @@
 #' \item{bottom_middle}{The mark in the bottom middle square of the board. x, o, or b (blank).}
 #' \item{bottom_right}{The mark in the bottom right square of the board. x, o, or b (blank).}
 #' \item{class}{The verdict of the game. Positive if x wins, negative otherwise.}
-#' @examples
-#' \dontrun{
-#' tictactoe %>%
-#' filter(class == "positive")}
-#' \dontrun{
-#' tictactoe %>%
-#' group_by(center) %>%
-#' count()}
+#' }
 "tictactoe"
+
 #' Flags Data Set
-#' @doctType data
-#' @source http://archive.ics.uci.edu/ml/datasets/Flags
-#' @format 
+#'
+#' This data file contains details of various nations and their flags
+#'
+#' @docType data
+#' @source \url{http://archive.ics.uci.edu/ml/datasets/Flags}
+#' @format A data frame with 194 rows and 30 variables
 #' \describe{
 #' \item{name}{Name of country.}
 #' \item{landmass}{Continent of country. 1 = North America, 2 = South America, 3 = Europe, 4 = Africa, 5 = Asia, 6 = Oceania.}
@@ -169,12 +169,77 @@
 #' \item{text}{Indicator of whether the flag contains letters or writing.}
 #' \item{topleft}{Colour in the top-left corner.}
 #' \item{botright}{Colour in the bottom-right corner.}
-#' @examples
-#' \dontrun{
-#' flags %>%
-#' filter(bars >= 3)}
-#' \dontrun{
-#' flags %>%
-#' group_by(mainhue) %>%
-#' count()}
+#' }
 "flags"
+
+#' Car Evalutaion Data Set
+#' @docType data
+#' @source \url{http://archive.ics.uci.edu/ml/datasets/Car+Evaluation}
+#' @format A data frame with 1728 rows and 7 variables:
+#' \describe{
+#' \item{buying}{The buying price of a car.}
+#' \item{maint}{The price of maintenence.}
+#' \item{doors}{The number of car doors.}
+#' \item{persons}{The capacity of people to carry.}
+#' \item{lug_boot}{The size of the luggage boot.}
+#' \item{safety}{The estimated safety of the car.}
+#' \item{class_values}{The car class values.}
+#' }
+"car"
+
+#' Breast Cancer Data Set
+#'
+#' Real patient data obtained from the Institute of Oncology, Ljubljana
+#'
+#' @docType data
+#' @source \url{http://archive.ics.uci.edu/ml/datasets/Breast+Cancer}
+#' @format A dataframe with 286 instances and 10 variables:
+#' \describe{
+#' \item{class}{The reoccurance of events.}
+#' \item{age}{The age of the patient at the time of diagnosis.}
+#' \item{menopause}{Whether the patient is pre- or postmenopausal at time of diagnosis.}
+#' \item{inv_nodes}{The number (range 0 - 39) of axillary lymph nodes that contain metastatic breast cancer visible on histological examination.}
+#' \item{node_caps}{The presence of cancer in the lymph nodes.}
+#' \item{deg_malig}{The Degree of malignancy, the histological grade (range 1-3) of the tumor.}
+#' \item{breast}{The prescence of brest cancer in either breast.}
+#' \item{breast_quad}{Breast quadrant, the breast may be divided into four quadrants, using the nipple as a central point.}
+#' \item{irradiat}{Irradiation, the use of radiation therapy}
+#' }
+"breast_cancer"
+
+#' Glass Identification Data Set
+#'
+#' From USA Forensic Science Service; 6 types of glass; defined in terms of their oxide content (i.e. Na, Fe, K, etc)
+#'
+#' @docType data
+#' @source \url{http://archive.ics.uci.edu/ml/datasets/Glass+Identification}
+#' @format A dataframe with 214 instances and 11 variables:
+#' \describe{
+#' \item{ID}{ID number: 1 to 214}
+#' \item{RI}{The refractive index.}
+#' \item{Na}{Sodium (unit measurement: weight percent in corresponding oxide).}
+#' \item{Mg}{Magnesium (unit measurement: weight percent in corresponding oxide).}
+#' \item{Al}{Aluminum (unit measurement: weight percent in corresponding oxide).}
+#' \item{Si}{Silicon (unit measurement: weight percent in corresponding oxide).}
+#' \item{K}{Potassium (unit measurement: weight percent in corresponding oxide).}
+#' \item{Ca}{Calcium (unit measurement: weight percent in corresponding oxide).}
+#' \item{Ba}{Barium (unit measurement: weight percent in corresponding oxide).}
+#' \item{Fe}{Iron (unit measurement: weight percent in corresponding oxide).}
+#' \item{glass_type}{Type of class: 1 = building_windows_float_processed, 2 = building_windows_non_float_processed, 3 = vehicle_windows_float_processed, 4 = vehicle_windows_non_float_processed, 5 = containers, 6 = tableware, 7 = headlamps.}
+#' }
+"glass"
+
+#' Liver Disorders Data Set
+#' @docType data
+#' @source \url{http://archive.ics.uci.edu/ml/datasets/Liver+Disorders}
+#' @format A dataframe with 214 instances and 11 variables:
+#' \describe{
+#' \item{mcv}{Mean corpuscular volume.}
+#' \item{alkphos}{Alkphos alkaline phosphotase.}
+#' \item{sgpt}{Sgpt alanine aminotransferase.}
+#' \item{sgot}{Sgot aspartate aminotransferase.}
+#' \item{gammagt}{Gamma-glutamyl transpeptidase.}
+#' \item{drinks}{Number of half-pint equivalents of alcoholic beverages drunk per day.}
+#' \item{selector}{Field created by the BUPA researchers to split the data into train/test sets.}
+#' }
+"liver"

@@ -4,7 +4,9 @@
 \name{adult}
 \alias{adult}
 \title{Adult Data Set}
-\format{\describe{
+\format{
+A data frame with 32561 rows and 15 variables:
+\describe{
 \item{age}{The individual's age.}
 \item{workclass}{The individual's type of employment. Can include Private, Federal-gov, Without-pay, etc.}
 \item{fnlwgt}{Final weight.}
@@ -19,23 +21,16 @@
 \item{capital_loss}{The individual's capital loss.}
 \item{hours_per_week}{The individual's hours worked per week.}
 \item{native_country}{The individual's native country.}
-\item{salary}{The individual's salary, either <=50K or >50K.}}}
+\item{salary}{The individual's salary, either <=50K or >50K.}
+}
+}
 \source{
-https://archive.ics.uci.edu/ml/machine-learning-databases/adult/
+\url{https://archive.ics.uci.edu/ml/machine-learning-databases/adult/}
 }
 \usage{
 adult
 }
 \description{
 Adult Data Set
-}
-\examples{
-\dontrun{
-adult \%>\%
-filter(salary = "<=50K")}
-\dontrun{
-adult \%>\%
-group_by(marital_status) \%>\%
-count()}
 }
 \keyword{datasets}

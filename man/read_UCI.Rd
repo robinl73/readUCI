@@ -4,8 +4,14 @@
 \alias{read_UCI}
 \title{Read files from the UCI Machine Learning Repository}
 \usage{
-read_UCI(webpage, data, data_delim = ",", data_col_names = FALSE,
-  data_overwrite = FALSE, ...)
+read_UCI(
+  webpage,
+  data,
+  data_delim = ",",
+  data_col_names = FALSE,
+  data_overwrite = FALSE,
+  ...
+)
 }
 \arguments{
 \item{webpage}{A string that corresponds with the the name of the dataset as
@@ -36,15 +42,17 @@ detected) or to \code{readr::read_delim}.}
 Read files from the UCI Machine Learning Repository
 }
 \examples{
-#Read in the Las Vegas Trip Advisor Reviews dataset
+# Read in the Las Vegas Trip Advisor Reviews dataset
 las_vegas <- read_UCI("00397", "LasVegasTripAdvisorReviews-Dataset.csv", data_delim = ";")
 
-#Read in Iris dataset
+# Read in Iris dataset
 iris_uci <- read_UCI("iris", "iris.data")
-
-#Read in Immunotherapy dataset
+\dontrun{
+# Read in Immunotherapy dataset
 immunotherapy <- read_UCI("00428", "Immunotherapy.xlsx")
-
-#Read in Breast Tissue dataset
-breast_tissue <- read_UCI("00192", "BreastTissue.xls", sheet = 2, data_overwrite = TRUE) 
+}
+\dontrun{
+# Read in Immunotherapy dataset
+breast_tissue <- read_UCI("00192", "BreastTissue.xls", sheet = 2, data_overwrite = TRUE)
+}
 }

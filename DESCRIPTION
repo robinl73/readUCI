@@ -1,6 +1,6 @@
 Package: readUCI
 Title: Read Data from the UCI Database
-Version: 0.0.0.9002
+Version: 0.0.0.9003
 Authors@R: 
     c(person(given = "Emma",
            family = "Livingston",
@@ -11,9 +11,11 @@ Authors@R:
              family = "Rosenberg",
              role = c("aut"),
              email = "clarajrosenberg@gmail.com",
-             comment = c(ORCID = "YOUR-ORCID-ID"))
+             comment = c(ORCID = "YOUR-ORCID-ID")),
+      person("Vivian", "Almaraz", email = "viviansofia101@gmail.com", role = "ctb"),
+      person("Kate", "Phan", email = "kphan@smith.edu", role = "ctb")
            )
-Description: What the package does (one paragraph).
+Description: readUCI facilitates the process of importing data from the University of California Irvine Machine Learning Repository. These datasets are especially good for machine learning practice, and can be used to create reproducible code examples.
 License: GPL-3
 Suggests: 
     testthat (>= 2.1.0),
@@ -22,14 +24,14 @@ Suggests:
 Encoding: UTF-8
 LazyData: true
 Roxygen: list(markdown = TRUE)
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.2
 Imports: 
     readr,
-    tibble,
     stringr,
     httr,
     readxl,
     janitor,
-    purrr
+    dplyr,
+    rlang
 Depends: R (>= 2.10)
 VignetteBuilder: knitr

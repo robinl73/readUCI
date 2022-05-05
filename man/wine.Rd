@@ -4,7 +4,9 @@
 \name{wine}
 \alias{wine}
 \title{Wine Data Set}
-\format{\describe{
+\format{
+A data frame with 178 rows and 14 variables:
+\describe{
 \item{class}{Type of wine.}
 \item{alcohol}{Alcohol.}
 \item{malic_acid}{Malic acid.}
@@ -14,27 +16,21 @@
 \item{total_phenols}{Total Phenols}
 \item{flavanoids}{Flavanoids.}
 \item{non_flavanoid_phenols}{Non-flavanoid phenols.}
-\item{proanthoyanins}{Proanthoyanins.}
+\item{proanthocyanins}{Proanthocyanins.}
 \item{color_intensity}{Color intensity.}
 \item{hue}{Hue.}
 \item{OD280_OD315_diluted}{OD280_OD315_diluted.}
-\item{proline}{Proline.}}}
+\item{proline}{Proline.}
+}
+}
 \source{
-https://archive.ics.uci.edu/ml/datasets/Wine
+\url{https://archive.ics.uci.edu/ml/datasets/Wine}
 }
 \usage{
 wine
 }
 \description{
-Wine Data Set
-}
-\examples{
-\dontrun{
-wine \%>\%
-arrange(total_phenols)}
-\dontrun{
-adult \%>\%
-group_by(class) \%>\%
-count()}
+This data is the result of a chemical analysis of wines grown in the same region in Italy but derived from three different cultivars.
+The analysis determined the quantities of 13 constituents found in each of the three types of wines.
 }
 \keyword{datasets}

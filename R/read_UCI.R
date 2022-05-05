@@ -20,46 +20,48 @@
 #'   detected) or to `readr::read_delim`.
 #' @title Read files from the UCI Machine Learning Repository
 #' @examples
-#' #Read in the Las Vegas Trip Advisor Reviews dataset
+#' # Read in the Las Vegas Trip Advisor Reviews dataset
 #' las_vegas <- read_UCI("00397", "LasVegasTripAdvisorReviews-Dataset.csv", data_delim = ";")
 #'
-#' #Read in Iris dataset
+#' # Read in Iris dataset
 #' iris_uci <- read_UCI("iris", "iris.data")
-#'
-#' #Read in Immunotherapy dataset
+#' \dontrun{
+#' # Read in Immunotherapy dataset
 #' immunotherapy <- read_UCI("00428", "Immunotherapy.xlsx")
-#'
-#' #Read in Breast Tissue dataset
-#' breast_tissue <- read_UCI("00192", "BreastTissue.xls", sheet = 2, data_overwrite = TRUE) 
+#' }
+#' \dontrun{
+#' # Read in Immunotherapy dataset
+#' breast_tissue <- read_UCI("00192", "BreastTissue.xls", sheet = 2, data_overwrite = TRUE)
+#' }
 read_UCI <- function(webpage,
                      data,
                      data_delim = ",",
                      data_col_names = FALSE,
                      data_overwrite = FALSE,
-                     ...){
-  if(!is.character(webpage)){
+                     ...) {
+  if (!is.character(webpage)) {
     stop("Argument webpage requires a string")
   }
-  if(!is.character(data)){
+  if (!is.character(data)) {
     stop("Argument data requires a string")
   }
-  #Paste together a url using the webpage and data_file
-  url <- paste0("https://archive.ics.uci.edu/ml/machine-learning-databases/", webpage,"/", data)
-  #If data_file is an excel object, create a using openxlsx::read.xlsx, the url,
-  #and the dots
-  if((stringr::str_detect(data, ".xls") == TRUE)){
+  # Paste together a url using the webpage and data_file
+  url <- paste0("https://archive.ics.uci.edu/ml/machine-learning-databases/", webpage, "/", data)
+  # If data_file is an excel object, create a using openxlsx::read.xlsx, the url,
+  # and the dots
+  if ((stringr::str_detect(data, ".xls") == TRUE)) {
     httr::GET(url, httr::write_disk(data, overwrite = data_overwrite))
     a <- readxl::read_excel(data, ...)
   }
-  #If data_file is not an excel object, create a using readr::read_delim, the
-  #url, data_delim, data_col_names, and the dots
-  else{
-    a <- readr::read_delim(file = url(url),
-                           delim = data_delim,
-                           col_names = data_col_names,
-                           ...)}
+  # If data_file is not an excel object, create a using readr::read_delim, the
+  # url, data_delim, data_col_names, and the dots
+  else {
+    a <- readr::read_delim(
+      file = url(url),
+      delim = data_delim,
+      col_names = data_col_names,
+      ...
+    )
+  }
   return(a)
 }
-
-
-
