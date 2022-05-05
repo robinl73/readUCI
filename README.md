@@ -162,4 +162,4 @@ imported and cleaned with the package. These are:
     Repository](https://archive.ics.uci.edu/ml/datasets.php)
 -   [Previous readUCI work](https://github.com/emmal73/readUCI)
 -   [Vignettes: more readUCI
-    examples](file:///private/var/folders/3m/ltp_cncd56lb5bg4vnj1tdb00000gn/T/RtmpgdV04P/preview-b1413ae7a2f.dir/readUCI.html)
+    examples](https://github.com/vivala1/readUCI/tree/master/vignettes)
