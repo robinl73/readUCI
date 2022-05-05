@@ -20,7 +20,7 @@ data sets as of 2022. These datasets are especially good for machine
 learning practice, and can be used to create reproducible code examples.
 As of December, 2019, there are 488 available datasets.
 
-![Logo](inst/repo_logo.png)
+![Logo](man/figures/repo_logo.png)
 
 The challenge with using the repository is that understanding how to get
 the data into R isn’t always intuitive and is inaccessible for
@@ -85,7 +85,7 @@ head(args_UCI)
 `read_UCI` is used to import data from the UCI machine learning
 repository into R.
 
-![Abalone](inst/abalone_annotated.jpg)
+![Abalone](man/figures/abalone_annotated.jpg)
 
 ``` r
 abalone <- read_UCI("abalone", "abalone.data")

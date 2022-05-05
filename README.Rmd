@@ -8,7 +8,7 @@ output: github_document
 knitr::opts_chunk$set(
   collapse = TRUE,
   comment = "#>",
-  fig.path = "readUCI/inst",
+  fig.path = "man/figures/README-",
   out.width = "100%"
 )
 ```
@@ -26,7 +26,7 @@ knitr::opts_chunk$set(
 
 The [University of California Irvine Machine Learning Repository](https://archive.ics.uci.edu/ml/datasets.php) contains 602 data sets as of 2022. These datasets are especially good for machine learning practice, and can be used to create reproducible code examples. As of December, 2019, there are 488 available datasets.
 
-![Logo](inst/repo_logo.png)
+![Logo](man/figures/repo_logo.png)
 
 
 The challenge with using the repository is that understanding how to get the data into R isn't always intuitive and is inaccessible for beginners. `readUCI` helps make this process easier. `read_UCI` facilitates the process of importing data from the University of California Irvine Machine Learning Repository.
@@ -65,7 +65,7 @@ head(args_UCI)
 
 `read_UCI` is used to import data from the UCI machine learning repository into R. 
 
-![Abalone](inst/abalone_annotated.jpg)
+![Abalone](man/figures/abalone_annotated.jpg)
 
 ```{r warning = FALSE, message = FALSE}
 abalone <- read_UCI("abalone", "abalone.data")
