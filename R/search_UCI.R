@@ -1,19 +1,9 @@
 globalVariables(c("UCI_datasets", "name","data_types", "default_task", "num_instances", "area"))
 
-#' @param data_type A string that corresponds with the the name of the dataset as
-#'   it appears in the [Parent
-#'   Directory](https://archive.ics.uci.edu/ml/machine-learning-databases/).
-#'   Note, you do not need to include "/", and correct spelling is important.
-#' @param data_task A string that corresponds with the primary file name you
-#'   wish to read in (typically data). This is visible on the page following the
-#'   parent directory. You can also navigate to the page by selecting "Data
-#'   Folder" on the homepage of the dataset. Correct spelling is important. If
-#'   there is a file extension such as `.csv` or `.xlsx`, that needs to be
-#'   included.
-#' @param data_area Default is ",". A single character delimiter used to
-#'   separate fields within the data file.
-#' @param min_instances Default is `FALSE`. Either `TRUE`, `FALSE`, or a
-#'   character vector of column names for the data file.
+#' @param data_type The types of data in the dataset. Can include: Multivariate, Univariate, Text, Data-Generator, Domain-Theory, Time-Series, Spatial, Relational, Sequential, Spatio-temporal, Transactional, Image.
+#' @param data_task The default machine learning task of the dataset. Can include: Classification, Recommender-System, Regression, Function-Learning, Relational-Learning, Clustering, Description, Causal-Discovery, Causa, Recommendation.
+#' @param data_area The field of study of the dataset. Can include: Life Sciences, Social Sciences, Physical Sciences, CS/ Engineering, Other, Game, Business.
+#' @param min_instances The minimum instances included the dataset. Integer can range from 1 and 63,000,000.
 #' @title Read files from the UCI Machine Learning Repository
 #' @examples
 #' dataset_pref1 <- search_UCI("Time-Series", "Classification", "Life Sciences", 300)

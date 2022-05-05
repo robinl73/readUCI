@@ -18,10 +18,8 @@ knitr::opts_chunk$set(
 <!-- badges: start -->
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![CRAN status](https://www.r-pkg.org/badges/version/readUCI)](https://CRAN.R-project.org/package=readUCI)
+[![R-CMD-check](https://github.com/vivala1/readUCI/workflows/R-CMD-check/badge.svg)](https://github.com/vivala1/readUCI/actions)
 [![Travis build status](https://travis-ci.org/emmal73/readUCI.svg?branch=master)](https://travis-ci.org/emmal73/readUCI)
-```{r}
-usethis::use_github_actions_badge(name = "R-CMD-check", repo_spec = NULL)
-```
 <!-- badges: end -->
 
 
@@ -49,13 +47,45 @@ library(readUCI)
 
 ### `UCI_datasets`
 
-The data set `UCI_datasets` has all of the available data sets from the repository and some characteristics, including data types and common tasks to perform with that data. 
+The dataset `UCI_datasets` has all of the available data sets from the repository and some characteristics, including data types and common tasks to perform with that data. 
 
 ```{r}
 head(UCI_datasets)
 ```
 
-### Included Datasets
+### `args_UCI`
+
+The dataset `args_UCI` provides the user with the arguments needed to import data from the UCI repository using the read_UCI function. This includes the link to the data set in the repository, and the dataset webpage.
+
+```{r}
+head(args_UCI)
+```
+
+### Common Use: `read_UCI`
+
+`read_UCI` is used to import data from the UCI machine learning repository into R. 
+
+![Abalone](inst/abalone_annotated.jpg)
+
+```{r warning = FALSE, message = FALSE}
+abalone <- read_UCI("abalone", "abalone.data")
+head(abalone)
+```
+
+## Common Use: `search_UCI`
+
+`search_UCI` allows the user to filter `UCI_datasets` by data type, machine learning task, field of study, and minimum instances. This helps search through `UCI_datasets` and limit the data entries to show datasets that relevant to the user.
+
+```{r}
+
+```
+
+## Additional Functionality
+
+* `preview_names`: Shows whether imported data includes variable names, and adds variable names to imported data.
+* `test_train_split`: Splits datasets into test and training data. Outputs are a test and train input and a test and train output dataset
+
+## Additional Datasets
 
 For your convenience, 9 datasets from the UCI database have been imported and cleaned with the package. These are:
 
@@ -69,65 +99,3 @@ For your convenience, 9 datasets from the UCI database have been imported and cl
 * `glass`: useful for identifying glass content, from the USA forensic science service
 * `liver`: useful to identify liver disorders
 
-## Functionality
-
-### Common Use: `read_UCI`
-
-`read_UCI` is used to import data from the UCI machine learning repository into R. 
-
-![Abalone](inst/abalone_annotated.jpg)
-
-```{r warning = FALSE, message = FALSE}
-abalone <- read_UCI("abalone", "abalone.data")
-head(abalone)
-```
-
-### Adding Names
-
-The data that gets imported does not have variable names, as we can see by just calling `preview_names`. 
-
-```{r echo = FALSE}
-#preview_names(abalone)
-```
-
-
-We can add those manually, based on the information provided in the `abalone.names` file. This can also be found at the homepage for the `Abalone`.
-
-```{r warning = FALSE, message = FALSE}
-abalone_names <- read_UCI("abalone", "abalone.names")
-abalone_names[58:79,]
-```
-
-Here we will manually add the names. 
-
-```{r warning = FALSE, message = FALSE}
-names(abalone) <- c("Sex", "Length", "Diameter", "Height", "Whole Weight", "Shucked Weight", "Viscera Weight", "Shell Weight", "Rings")
-
-```
-
-Next we can run `preview_names` to clean up the column names and display the names.
-
-```{r warning = FALSE}
-names(abalone) <- preview_names(abalone)
-```
-
-## Creating Test and Training Data Sets
-
-When performing classification methods, instead of splitting test and training data and separating variables into input and output data for class manually, we can use the 'test_train_split' function.
-
-```{r}
-iris_uci <- read_UCI("iris", "iris.data")
-
-iris_datasets <- test_train_split(iris_uci, 20, "X5")
-iris_datasets$test_set
-iris_datasets$train_set
-```
-
-The 'test_train_split' function also creates test and training data input and outcome variables. Where the input variable represents 'X', and the outcome variable represents the response variable of interest 'Y.'
-
-```{r}
-iris_datasets$test_input
-iris_datasets$test_output
-iris_datasets$train_input
-iris_datasets$train_output
-```

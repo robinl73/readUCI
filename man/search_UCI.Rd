@@ -14,17 +14,17 @@ search_UCI(
 \arguments{
 \item{data_type}{A string that corresponds with the the name of the dataset as
 it appears in the \href{https://archive.ics.uci.edu/ml/machine-learning-databases/}{Parent Directory}.
-Note, you do not need to include "/", and correct spelling is important.}
+Note, you do not need to include "/", and correct spelling is important Can include: Multivariate, Univariate, Text, Data-Generator, Domain-Theory, Time-Series, Spatial, Relational, Sequential, Spatio-temporal, Transactional, Image.}
 
 \item{data_task}{A string that corresponds with the primary file name you
 wish to read in (typically data). This is visible on the page following the
 parent directory. You can also navigate to the page by selecting "Data
 Folder" on the homepage of the dataset. Correct spelling is important. If
 there is a file extension such as \code{.csv} or \code{.xlsx}, that needs to be
-included.}
+included. Can include: Classification, Recommender-System, Regression, Function-Learning, Relational-Learning, Clustering, Description, Causal-Discovery, Causa, Recommendation.}
 
 \item{data_area}{Default is ",". A single character delimiter used to
-separate fields within the data file.}
+separate fields within the data file. Can include: Life Sciences, Social Sciences, Physical Sciences, CS/ Engineering, Other, Game, Business.}
 
 \item{min_instances}{Default is \code{FALSE}. Either \code{TRUE}, \code{FALSE}, or a
 character vector of column names for the data file.}
