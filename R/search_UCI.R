@@ -22,7 +22,7 @@ search_UCI <- function(data_type = NULL, data_task = NULL, data_area = NULL, min
   
   if (!is_null(data_type) == TRUE) {
     if (!(data_type %in% types)) {
-      stop("Invalid type value. \n  Please enter a valid data type: Multivariate, Univariate, Text, Data-Generator, Domain-Theory, Time-Series, Spatial, Relational, Sequential, Spatio-temporal, Transactional, Image")
+      stop("Invalid typesea value. \n  Please enter a valid data type: Multivariate, Univariate, Text, Data-Generator, Domain-Theory, Time-Series, Spatial, Relational, Sequential, Spatio-temporal, Transactional, Image")
     }
   }
   
