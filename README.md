@@ -9,20 +9,26 @@
 experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://www.tidyverse.org/lifecycle/#experimental)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/readUCI)](https://CRAN.R-project.org/package=readUCI)
+[![R-CMD-check](https://github.com/vivala1/readUCI/workflows/R-CMD-check/badge.svg)](https://github.com/vivala1/readUCI/actions)
 [![Travis build
 status](https://travis-ci.org/emmal73/readUCI.svg?branch=master)](https://travis-ci.org/emmal73/readUCI)
 <!-- badges: end -->
 
-`readUCI` facilitates the process of importing data from the [University
-of California Irvine Machine Learning
-Repository](https://archive.ics.uci.edu/ml/datasets.php). These datasets
-are especially good for machine learning practice, and can be used to
-create reproducible code examples. As of December, 2019, there are 488
-available datasets.
+The [University of California Irvine Machine Learning
+Repository](https://archive.ics.uci.edu/ml/datasets.php) contains 602
+data sets as of 2022. These datasets are especially good for machine
+learning practice, and can be used to create reproducible code examples.
+As of December, 2019, there are 488 available datasets.
 
-The dataset `UCI_datasets` has all of the available datasets from the
-repository and some characteristics, including data types and common
-tasks to perform with that data.
+![Logo](inst/repo_logo.png)
+
+The challenge with using the repository is that understanding how to get
+the data into R isn’t always intuitive and is inaccessible for
+beginners. `readUCI` helps make this process easier. `read_UCI`
+facilitates the process of importing data from the University of
+California Irvine Machine Learning Repository.
+
+## Installation
 
 You can install the package through GitHub:
 
@@ -32,14 +38,59 @@ You can install the package through GitHub:
 library(readUCI)
 ```
 
-## Common Use: `read_UCI`
+## Data sets
+
+### `UCI_datasets`
+
+The dataset `UCI_datasets` has all of the available data sets from the
+repository and some characteristics, including data types and common
+tasks to perform with that data.
+
+``` r
+head(UCI_datasets)
+#> # A tibble: 6 × 8
+#>   name      data_types default_task attribute_types num_instances num_attributes
+#>   <chr>     <chr>      <chr>        <chr>                   <dbl>          <dbl>
+#> 1 Abalone   Multivari… Classificat… Categorical, I…          4177              8
+#> 2 Adult     Multivari… Classificat… Categorical, I…         48842             14
+#> 3 Annealing Multivari… Classificat… Categorical, I…           798             38
+#> 4 Anonymou… <NA>       Recommender… Categorical             37711            294
+#> 5 Arrhythm… Multivari… Classificat… Categorical, I…           452            279
+#> 6 Artifici… Multivari… Classificat… Categorical, I…          6000              7
+#> # … with 2 more variables: year <dbl>, area <chr>
+```
+
+### `args_UCI`
+
+The dataset `args_UCI` provides the user with the arguments needed to
+import data from the UCI repository using the read_UCI function. This
+includes the link to the data set in the repository, and the dataset
+webpage.
+
+``` r
+head(args_UCI)
+#> # A tibble: 6 × 3
+#>   name                         links                                     webpage
+#>   <chr>                        <chr>                                     <chr>  
+#> 1 Abalone                      https://archive.ics.uci.edu/ml/datasets/… ../mac…
+#> 2 Adult                        https://archive.ics.uci.edu/ml/datasets/… ../mac…
+#> 3 Annealing                    https://archive.ics.uci.edu/ml/datasets/… ../mac…
+#> 4 Anonymous Microsoft Web Data https://archive.ics.uci.edu/ml/datasets/… ../mac…
+#> 5 Arrhythmia                   https://archive.ics.uci.edu/ml/datasets/… ../mac…
+#> 6 Artificial Characters        https://archive.ics.uci.edu/ml/datasets/… ../mac…
+```
+
+### Common Use: `read_UCI`
+
+`read_UCI` is used to import data from the UCI machine learning
+repository into R.
 
 ![Abalone](inst/abalone_annotated.jpg)
 
 ``` r
 abalone <- read_UCI("abalone", "abalone.data")
 head(abalone)
-#> # A tibble: 6 x 9
+#> # A tibble: 6 × 9
 #>   X1       X2    X3    X4    X5     X6     X7    X8    X9
 #>   <chr> <dbl> <dbl> <dbl> <dbl>  <dbl>  <dbl> <dbl> <dbl>
 #> 1 M     0.455 0.365 0.095 0.514 0.224  0.101  0.15     15
@@ -50,60 +101,39 @@ head(abalone)
 #> 6 I     0.425 0.3   0.095 0.352 0.141  0.0775 0.12      8
 ```
 
-### Adding Names
+## Common Use: `search_UCI`
 
-The data that gets imported does not have variable names, as we can see
-by just calling `preview_names`.
+`search_UCI` allows the user to filter `UCI_datasets` by data type,
+machine learning task, field of study, and minimum instances. This helps
+search through `UCI_datasets` and limit the data entries to show
+datasets that relevant to the user.
 
-We can add those manually, based on the information provided in the
-`abalone.names` file. This can also be found at the homepage for the
-`Abalone`.
+## Additional Functionality
 
-``` r
-abalone_names <- read_UCI("abalone", "abalone.names")
-abalone_names[58:79,]
-#> # A tibble: 22 x 1
-#>    X1                                                                      
-#>    <chr>                                                                   
-#>  1 7. Attribute information:                                               
-#>  2 "   Given is the attribute name"                                        
-#>  3 "   brief description.  The number of rings is the value to predict: ei~
-#>  4 "   as a continuous value or as a classification problem."              
-#>  5 "\tName\t\tData Type\tMeas.\tDescription"                               
-#>  6 "\t----\t\t---------\t-----\t-----------"                               
-#>  7 "\tSex\t\tnominal\t\t\tM"                                               
-#>  8 "\tLength\t\tcontinuous\tmm\tLongest shell measurement"                 
-#>  9 "\tDiameter\tcontinuous\tmm\tperpendicular to length"                   
-#> 10 "\tHeight\t\tcontinuous\tmm\twith meat in shell"                        
-#> # ... with 12 more rows
-```
+-   `preview_names`: Shows whether imported data includes variable
+    names, and adds variable names to imported data.
+-   `test_train_split`: Splits datasets into test and training data.
+    Outputs are a test and train input and a test and train output
+    dataset
 
-Here we will manually add the names.
+## Additional Datasets
 
-``` r
-names(abalone) <- c("Sex", "Length", "Diameter", "Height", "Whole Weight", "Shucked Weight", "Viscera Weight", "Shell Weight", "Rings")
-```
+For your convenience, 9 datasets from the UCI database have been
+imported and cleaned with the package. These are:
 
-Next we can run `preview_names` to clean up the column names and display
-the names.
-
-``` r
-names(abalone) <- preview_names(abalone)
-#> [1] "sex"            "length"         "diameter"       "height"        
-#> [5] "whole_weight"   "shucked_weight" "viscera_weight" "shell_weight"  
-#> [9] "rings"
-```
-
-## Included Datasets
-
-For your convenience, 5 datasets from the UCI database are imported and
-cleaned with the package. These are:
-
-  - `adult`: used to predict whether income is greater than $50K from
+-   `adult`: used to predict whether income is greater than $50K from
     census data
-  - `flags`: contains details of countries and their flags
-  - `las_vegas`: contains features of online reviews of 21 hotels in Las
+-   `flags`: contains details of countries and their flags
+-   `las_vegas`: contains features of online reviews of 21 hotels in Las
     Vegas
-  - `tictactoe`: used for binary classification, based on possible
+-   `tictactoe`: used for binary classification, based on possible
     tic-tac-toe configurations
-  - `wine`: used to determine origin of wines based on chemical analysis
+-   `wine`: used to determine origin of wines based on chemical analysis
+-   `breast_cancer`: used to predict presence of breast cancer from real
+    patient data obtained from the Institute of Oncology,
+    Ljubljanadetermine
+-   `car`: useful for testing constructive induction and structure
+    discovery method on car evaluation
+-   `glass`: useful for identifying glass content, from the USA forensic
+    science service
+-   `liver`: useful to identify liver disorders
