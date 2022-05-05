@@ -1,5 +1,6 @@
 library(rvest)
 library(tidyverse)
+library(tidyr)
 
 url2 <- read_html("https://archive.ics.uci.edu/ml/datasets.php")
 
@@ -67,9 +68,13 @@ for (i in links) {
   }
 }
 
-webcode_list <- do.call(rbind, Map(data.frame, links = links, webpage = webcode))
+webpage <- unlist(webcode)
+webpage_list <- data.frame(links, webpage)
 
 args_UCI <- args_UCI %>%
-  left_join(webcode_list, by = "links")
+  left_join(webpage_list, by = "links")
+
+args_UCI <- args_UCI %>%
+  drop_na(webpage)
 
 usethis::use_data(args_UCI, overwrite = TRUE)

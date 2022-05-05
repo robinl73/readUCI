@@ -75,4 +75,9 @@ UCI_datasets$num_attributes <- as.numeric(UCI_datasets$num_attributes)
 UCI_datasets$num_instances <- as.numeric(UCI_datasets$num_instances)
 UCI_datasets$year <- as.numeric(UCI_datasets$year)
 
+empty_datasets = c(338,344,377,388,461)
+
+UCI_datasets <- UCI_datasets %>%
+  filter(!row_number() %in% empty_datasets)
+
 usethis::use_data(UCI_datasets, overwrite = TRUE)
