@@ -108,6 +108,24 @@ machine learning task, field of study, and minimum instances. This helps
 search through `UCI_datasets` and limit the data entries to show
 datasets that relevant to the user.
 
+``` r
+search_UCI("Multivariate", "Classification", "Life Sciences", 500)
+#> # A tibble: 48 × 5
+#>    name                              data_types default_task num_instances area 
+#>    <chr>                             <chr>      <chr>                <dbl> <chr>
+#>  1 Abalone                           Multivari… Classificat…          4177 Life…
+#>  2 Breast Cancer Wisconsin (Origina… Multivari… Classificat…           699 Life…
+#>  3 Breast Cancer Wisconsin (Diagnos… Multivari… Classificat…           569 Life…
+#>  4 Contraceptive Method Choice       Multivari… Classificat…          1473 Life…
+#>  5 Covertype                         Multivari… Classificat…        581012 Life…
+#>  6 Mushroom                          Multivari… Classificat…          8124 Life…
+#>  7 Thyroid Disease                   Multivari… Classificat…          7200 Life…
+#>  8 Yeast                             Multivari… Classificat…          1484 Life…
+#>  9 Mammographic Mass                 Multivari… Classificat…           961 Life…
+#> 10 Arcene                            Multivari… Classificat…           900 Life…
+#> # … with 38 more rows
+```
+
 ## Additional Functionality
 
 -   `preview_names`: Shows whether imported data includes variable
@@ -137,3 +155,11 @@ imported and cleaned with the package. These are:
 -   `glass`: useful for identifying glass content, from the USA forensic
     science service
 -   `liver`: useful to identify liver disorders
+
+## See Also
+
+-   [University of California Irvine Machine Learning
+    Repository](https://archive.ics.uci.edu/ml/datasets.php)
+-   [Previous readUCI work](https://github.com/emmal73/readUCI)
+-   [Vignettes: more readUCI
+    examples](file:///private/var/folders/3m/ltp_cncd56lb5bg4vnj1tdb00000gn/T/RtmpgdV04P/preview-b1413ae7a2f.dir/readUCI.html)
