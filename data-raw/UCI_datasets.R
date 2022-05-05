@@ -5,7 +5,7 @@ url <- read_html("https://archive.ics.uci.edu/ml/datasets.php")
 
 large_table <- url %>%
   html_nodes(css = "table") %>%
-  html_table(fill = TRUE) 
+  html_table(fill = TRUE)
 
 UCI_datasets <- large_table[[6]]
 UCI_datasets <- UCI_datasets[-1, -1:-2]
@@ -18,12 +18,14 @@ UCI_datasets <- UCI_datasets %>%
   filter(!is.na(name))
 
 UCI_datasets <- UCI_datasets %>%
-  mutate(data_types = ifelse(data_types == "", NA, data_types),
-         default_task = ifelse(default_task == "", NA, default_task),
-         attribute_types = ifelse(attribute_types == "", NA, attribute_types),
-         num_instances = ifelse(num_instances == "", NA, num_instances),
-         num_attributes = ifelse(num_attributes == "", NA, num_attributes),
-         year = ifelse(year == "", NA, year)  )
+  mutate(
+    data_types = ifelse(data_types == "", NA, data_types),
+    default_task = ifelse(default_task == "", NA, default_task),
+    attribute_types = ifelse(attribute_types == "", NA, attribute_types),
+    num_instances = ifelse(num_instances == "", NA, num_instances),
+    num_attributes = ifelse(num_attributes == "", NA, num_attributes),
+    year = ifelse(year == "", NA, year)
+  )
 
 # Adding the area variable
 whole <- list("https://archive.ics.uci.edu/ml/datasets.php?format=&task=&att=&area=life&numAtt=&numIns=&type=&sort=nameUp&view=table", "https://archive.ics.uci.edu/ml/datasets.php?format=&task=&att=&area=phys&numAtt=&numIns=&type=&sort=nameUp&view=table", "https://archive.ics.uci.edu/ml/datasets.php?format=&task=&att=&area=comp&numAtt=&numIns=&type=&sort=nameUp&view=table", "https://archive.ics.uci.edu/ml/datasets.php?format=&task=&att=&area=soc&numAtt=&numIns=&type=&sort=nameUp&view=table", "https://archive.ics.uci.edu/ml/datasets.php?format=&task=&att=&area=bus&numAtt=&numIns=&type=&sort=nameUp&view=table", "https://archive.ics.uci.edu/ml/datasets.php?format=&task=&att=&area=game&numAtt=&numIns=&type=&sort=nameUp&view=table", "https://archive.ics.uci.edu/ml/datasets.php?format=&task=&att=&area=other&numAtt=&numIns=&type=&sort=nameUp&view=table")
@@ -66,12 +68,11 @@ area <- area %>%
 
 # combining area data set with UCI_datasets to create new variable called area
 
-UCI_datasets <- left_join(UCI_datasets, area, by = c("name")) 
+UCI_datasets <- left_join(UCI_datasets, area, by = c("name"))
 
-#convert to numeric
+# convert to numeric
 UCI_datasets$num_attributes <- as.numeric(UCI_datasets$num_attributes)
 UCI_datasets$num_instances <- as.numeric(UCI_datasets$num_instances)
 UCI_datasets$year <- as.numeric(UCI_datasets$year)
 
 usethis::use_data(UCI_datasets, overwrite = TRUE)
-

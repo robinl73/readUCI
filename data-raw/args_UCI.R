@@ -7,12 +7,12 @@ url2 <- read_html("https://archive.ics.uci.edu/ml/datasets.php")
 
 large_table2 <- url2 %>%
   html_nodes(css = "table") %>%
-  html_table(fill = TRUE) 
+  html_table(fill = TRUE)
 
 args_UCI <- large_table2[[6]]
 args_UCI <- args_UCI[-1, -(2:9)]
 args_UCI <- unique(args_UCI)
-args_UCI <- args_UCI[-2,]
+args_UCI <- args_UCI[-2, ]
 
 names(args_UCI) <- "name"
 
@@ -21,8 +21,8 @@ names(args_UCI) <- "name"
 name <- url2 %>%
   html_nodes("tr") %>%
   html_nodes("a") %>%
-  html_text2() %>% 
-  unique() 
+  html_text2() %>%
+  unique()
 
 name <- name[-c(1:42)]
 
@@ -33,9 +33,9 @@ links_list <- url2 %>%
   unique()
 
 links_list <- links_list[-c(1:45)]
-links  <- list()
+links <- list()
 for (i in links_list) {
-  links[[i]] <- paste("https://archive.ics.uci.edu/ml/",i,sep = "")
+  links[[i]] <- paste("https://archive.ics.uci.edu/ml/", i, sep = "")
 }
 links <- unlist(links)
 url_list <- data.frame(name, links)
@@ -67,7 +67,7 @@ for (i in links) {
   }
 }
 
-webcode_list <- do.call(rbind, Map(data.frame, links=links, webpage=webcode))
+webcode_list <- do.call(rbind, Map(data.frame, links = links, webpage = webcode))
 
 args_UCI <- args_UCI %>%
   left_join(webcode_list, by = "links")

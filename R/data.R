@@ -23,12 +23,12 @@
 #' }
 "UCI_datasets"
 
-#' Arguments Data Set 
-#' 
-#' This data set provides the user with the arguments needed to import data from the UCI repository using the read_UCI function. 
-#' 
+#' Arguments Data Set
+#'
+#' This data set provides the user with the arguments needed to import data from the UCI repository using the read_UCI function.
+#'
 #' @docType data
-#' @format 
+#' @format
 #' \describe{
 #' \item{name}{The name of the dataset.}
 #' \item{links}{The link to the dataset provides data arguement for the function. Data argument is located below the index header inside the "Data Folder".}
@@ -39,7 +39,7 @@
 #' Adult Data Set
 #' @docType data
 #' @source \url{https://archive.ics.uci.edu/ml/machine-learning-databases/adult/}
-#' @format A data frame with 32561 rows and 15 variables: 
+#' @format A data frame with 32561 rows and 15 variables:
 #' \describe{
 #' \item{age}{The individual's age.}
 #' \item{workclass}{The individual's type of employment. Can include Private, Federal-gov, Without-pay, etc.}
@@ -60,10 +60,10 @@
 "adult"
 
 #' Wine Data Set
-#' 
-#' This data is the result of a chemical analysis of wines grown in the same region in Italy but derived from three different cultivars. 
-#' The analysis determined the quantities of 13 constituents found in each of the three types of wines. 
-#' 
+#'
+#' This data is the result of a chemical analysis of wines grown in the same region in Italy but derived from three different cultivars.
+#' The analysis determined the quantities of 13 constituents found in each of the three types of wines.
+#'
 #' @docType data
 #' @source \url{https://archive.ics.uci.edu/ml/datasets/Wine}
 #' @format A data frame with 178 rows and 14 variables:
@@ -132,9 +132,9 @@
 "tictactoe"
 
 #' Flags Data Set
-#' 
+#'
 #' This data file contains details of various nations and their flags
-#' 
+#'
 #' @docType data
 #' @source \url{http://archive.ics.uci.edu/ml/datasets/Flags}
 #' @format A data frame with 194 rows and 30 variables
@@ -188,15 +188,15 @@
 "car"
 
 #' Breast Cancer Data Set
-#' 
+#'
 #' Real patient data obtained from the Institute of Oncology, Ljubljana
-#' 
+#'
 #' @docType data
 #' @source \url{http://archive.ics.uci.edu/ml/datasets/Breast+Cancer}
 #' @format A dataframe with 286 instances and 10 variables:
 #' \describe{
-#' \item{class}{The reoccurance of events.} 
-#' \item{age}{The age of the patient at the time of diagnosis.} 
+#' \item{class}{The reoccurance of events.}
+#' \item{age}{The age of the patient at the time of diagnosis.}
 #' \item{menopause}{Whether the patient is pre- or postmenopausal at time of diagnosis.}
 #' \item{inv_nodes}{The number (range 0 - 39) of axillary lymph nodes that contain metastatic breast cancer visible on histological examination.}
 #' \item{node_caps}{The presence of cancer in the lymph nodes.}
@@ -208,15 +208,15 @@
 "breast_cancer"
 
 #' Glass Identification Data Set
-#' 
+#'
 #' From USA Forensic Science Service; 6 types of glass; defined in terms of their oxide content (i.e. Na, Fe, K, etc)
-#' 
+#'
 #' @docType data
 #' @source \url{http://archive.ics.uci.edu/ml/datasets/Glass+Identification}
 #' @format A dataframe with 214 instances and 11 variables:
 #' \describe{
-#' \item{ID}{ID number: 1 to 214} 
-#' \item{RI}{The refractive index.} 
+#' \item{ID}{ID number: 1 to 214}
+#' \item{RI}{The refractive index.}
 #' \item{Na}{Sodium (unit measurement: weight percent in corresponding oxide).}
 #' \item{Mg}{Magnesium (unit measurement: weight percent in corresponding oxide).}
 #' \item{Al}{Aluminum (unit measurement: weight percent in corresponding oxide).}
@@ -234,8 +234,8 @@
 #' @source \url{http://archive.ics.uci.edu/ml/datasets/Liver+Disorders}
 #' @format A dataframe with 214 instances and 11 variables:
 #' \describe{
-#' \item{mcv}{Mean corpuscular volume.} 
-#' \item{alkphos}{Alkphos alkaline phosphotase.} 
+#' \item{mcv}{Mean corpuscular volume.}
+#' \item{alkphos}{Alkphos alkaline phosphotase.}
 #' \item{sgpt}{Sgpt alanine aminotransferase.}
 #' \item{sgot}{Sgot aspartate aminotransferase.}
 #' \item{gammagt}{Gamma-glutamyl transpeptidase.}
@@ -243,4 +243,3 @@
 #' \item{selector}{Field created by the BUPA researchers to split the data into train/test sets.}
 #' }
 "liver"
-

@@ -29,7 +29,7 @@ wine$class <- as.factor(wine$class)
 usethis::use_data(wine, overwrite = TRUE)
 
 las_vegas <- read_UCI("00397", "LasVegasTripAdvisorReviews-Dataset.csv",
-                      data_delim = ";", data_col_names = TRUE
+  data_delim = ";", data_col_names = TRUE
 )
 las_vegas <- preview_names(las_vegas)
 las_vegas$score <- as.factor(las_vegas$score)

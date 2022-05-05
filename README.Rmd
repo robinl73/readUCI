@@ -37,7 +37,7 @@ The challenge with using the repository is that understanding how to get the dat
 You can install the package through GitHub:
 
 ```{r warning = FALSE, message = FALSE}
-#devtools::install_github("emmal73/readUCI")
+# devtools::install_github("emmal73/readUCI")
 
 library(readUCI)
 ```
