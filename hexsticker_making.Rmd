@@ -1,0 +1,31 @@
+---
+title: "hex"
+author: "Vivian Almaraz"
+date: '2022-05-05'
+output: html_document
+---
+```{r}
+library(hexSticker)
+library(magick)
+library(sysfonts)
+library(tidyverse)
+
+aard_img <- image_read("man/figures/taard.png")
+sticker(
+  subplot = aard_img,
+  package = "readUCI",
+  s_width = 1.75,
+  s_height = 1.75, 
+  s_x = 1,
+  s_y = 0.75,
+  p_size = 18,
+  p_color = 'goldenrod2',
+  p_y = 1.35,
+  h_fill = "#b0cee4",
+  h_color = "dodgerblue4",
+  h_size = 2) %>%
+  print()
+
+save_sticker("man/figures/readUCI.png")
+
+```

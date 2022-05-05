@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# readUCI
+# readUCI <img src= "man/figures/readUCI.png" width ="150" align="right" />
 
 <!-- badges: start -->
 
@@ -33,7 +33,7 @@ California Irvine Machine Learning Repository.
 You can install the package through GitHub:
 
 ``` r
-#devtools::install_github("emmal73/readUCI")
+# devtools::install_github("emmal73/readUCI")
 
 library(readUCI)
 ```
@@ -163,3 +163,8 @@ imported and cleaned with the package. These are:
 -   [Previous readUCI work](https://github.com/emmal73/readUCI)
 -   [Vignettes: more readUCI
     examples](https://github.com/vivala1/readUCI/tree/master/vignettes)
+
+## Contributers
+
+-   [Vivian Almaraz](https://github.com/vivala1)
+-   [Kate Phan](https://github.com/katephan)
